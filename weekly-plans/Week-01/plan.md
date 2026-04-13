@@ -8,11 +8,11 @@
 
 | Order | What | Time |
 |-------|------|------|
-| 1 | Read the [DataCamp Normal Equation tutorial](https://www.datacamp.com/tutorial/tutorial-normal-equation-for-linear-regression). Don't rush. Take notes. | 45 min |
-| 2 | After reading, close the tab. Write in your own words: what is the Normal Equation doing? How does it find the best weights without iterating? | 15 min |
-| 3 | Watch [3Blue1Brown Essence of Linear Algebra — Ep 1: Vectors](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) | 15 min |
-| 4 | Watch Ep 2: Linear combinations, span, and basis vectors | 15 min |
-| 5 | Reflect: how do the vectors in these videos relate to the columns of your feature matrix X? Write 2-3 sentences in your notes. | 10 min |
+| 1 | ~~Read the [DataCamp Normal Equation tutorial](https://www.datacamp.com/tutorial/tutorial-normal-equation-for-linear-regression). Don't rush. Take notes.~~ | 45 min | DONE |
+| 2 | ~~After reading, close the tab. Write in your own words: what is the Normal Equation doing? How does it find the best weights without iterating?~~ | 15 min | DONE |
+| 3 | ~~Watch [3Blue1Brown Essence of Linear Algebra — Ep 1: Vectors](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)~~ | 15 min | DONE |
+| 4 | ~~Watch Ep 2: Linear combinations, span, and basis vectors~~ | 15 min | DONE |
+| 5 | ~~Reflect: how do the vectors in these videos relate to the columns of your feature matrix X? Write 2-3 sentences in your notes.~~ | 10 min | DONE |
 
 **Done for the day. Close laptop.**
 
@@ -89,8 +89,8 @@
 ### Afternoon block (2.5 hrs)
 | Order | What | Time |
 |-------|------|------|
-| 5 | **Task 4**: Ridge regularization reasoning. Normal Equation: `θ = (XᵀX)⁻¹ Xᵀy`. Ridge: `θ = (XᵀX + αI)⁻¹ Xᵀy`. Open a notebook or paper. Write down what you think αI does. Hint: what happens to a matrix when you add a constant to its diagonal? Does it become "easier" or "harder" to invert? What does that mean for the weights? | 40-50 min |
-| 6 | **Fix the .copy() bug** in your K-fold CV notebook. Open `04-domain-features-final-model.ipynb`, find `test_df = df_splits[i]`, change to `test_df = df_splits[i].copy()`. Also add `.copy()` after the `pd.concat` for train_df to be safe. Re-run and verify results don't change. | 20-30 min |
+| 5 | ~~**Task 4**: Ridge regularization reasoning. Ran experiment notebook comparing α=0,1,10,100. Understood: αI increases diagonal → bigger denominator in inverse → smaller weights. Connected to bias-variance tradeoff.~~ | 40-50 min | DONE (pulled forward from Saturday) |
+| 6 | ~~**Fix the .copy() bug** in K-fold CV notebook. Added `.copy()` to both `test_df` and `train_df`. Verified outputs unchanged — safety fix, not correctness fix.~~ | 20-30 min | DONE (pulled forward from Saturday) |
 | 7 | Watch 3Blue1Brown Ep 5: The determinant (if time permits) | 15 min |
 
 ---
@@ -124,9 +124,9 @@ Use this for whatever needs catching up. If everything's done, rest. Don't force
 |----------|--------|---------------|
 | Course 2 | Week 1 complete, Week 2 started | Assignment submitted, first 3-4 videos of Week 2 watched |
 | 3Blue1Brown | Episodes 1-5 of Linear Algebra + 1 Neural Networks video | Notes written connecting videos to ML concepts |
-| Normal Equation | Task 3 done — can explain in own words | Written explanation in notes |
-| Ridge reasoning | Task 4 done — can reason about αI | Written reasoning in notes |
-| .copy() bug | Fixed and verified | Notebook re-runs with same results |
+| Normal Equation | ~~Task 3 done — can explain in own words~~ | ~~Written explanation in notes~~ | DONE Day 1 |
+| Ridge reasoning | ~~Task 4 done — can reason about αI~~ | ~~Written reasoning in notes + experiment notebook~~ | DONE Day 1 |
+| .copy() bug | ~~Fixed and verified~~ | ~~Notebook re-runs with same results~~ | DONE Day 1 |
 | DSA | 8 problems solved (6 easy, 2 medium) | Pattern notes for each problem |
 | Dataset scouting | 2 classification datasets bookmarked for Project 2 | Links saved |
 
