@@ -23,13 +23,13 @@
 
 | Order | What | Time |
 |-------|------|------|
-| 1 | Go to [NeetCode.io](https://neetcode.io/). Bookmark it. Look at the "Arrays & Hashing" section. | 10 min |
-| 2 | **Problem 1**: [Two Sum](https://leetcode.com/problems/two-sum/) — Try for 20 min on your own. If stuck, look at the NeetCode video explanation, then code it yourself. | 30-40 min |
-| 3 | **Problem 2**: [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) — Same approach: try first, then check if stuck. | 20-30 min |
-| 4 | **Problem 3**: [Valid Anagram](https://leetcode.com/problems/valid-anagram/) | 20-30 min |
-| 5 | After all 3: for each problem, write one line about the pattern used (e.g., "hashmap for O(1) lookup"). | 10 min |
+| 1 | ~~Go to [NeetCode.io](https://neetcode.io/). Bookmark it. Look at the "Arrays & Hashing" section.~~ | 10 min | DONE |
+| 2 | ~~**Problem 1**: [Two Sum](https://leetcode.com/problems/two-sum/) — Try for 20 min on your own. If stuck, look at the NeetCode video explanation, then code it yourself.~~ | 30-40 min | DONE |
+| 3 | ~~**Problem 2**: [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) — Same approach: try first, then check if stuck.~~ | 20-30 min | DONE |
+| 4 | ~~**Problem 3**: [Valid Anagram](https://leetcode.com/problems/valid-anagram/)~~ | 20-30 min | DONE |
+| 5 | ~~After all 3: for each problem, write one line about the pattern used (e.g., "hashmap for O(1) lookup").~~ | 10 min | DONE |
 
-**Target: 3 easy problems solved. Quality > speed.**
+**Target: 3 easy problems solved. Quality > speed.** ✅
 
 ---
 
