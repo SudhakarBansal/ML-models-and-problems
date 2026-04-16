@@ -33,22 +33,24 @@
 
 ---
 
-## Wednesday — ML Theory (1.5-2 hrs)
-**Topic: Start Andrew Ng Course 2 — Week 1 (Neural Networks intro)**
+## Wednesday — ML Theory (1.5-2 hrs) ✅ DONE
+**Topic: Derivatives + Backpropagation (3B1B Calculus & Neural Networks)**
 
 | Order | What | Time |
 |-------|------|------|
-| 1 | Open [Course 2: Advanced Learning Algorithms](https://www.coursera.org/specializations/machine-learning-introduction) on Coursera. Start Week 1. | 5 min |
-| 2 | Watch the first 4-5 videos of Week 1 (Neurons and the brain, Neural network model, etc.). Take notes in a new notes file. | 60-70 min |
-| 3 | Watch 3Blue1Brown Ep 3: Linear transformations and matrices | 15 min |
-| 4 | Pause and think: Andrew Ng talks about weights in neural networks. 3B1B talks about matrices as transformations. Can you see how multiplying inputs by weights IS a linear transformation? Write a note. | 10 min |
+| 1 | ~~Continue Course 2 Week 2 (backprop/derivatives)~~ | ~1 hr | DONE |
+| 2 | ~~3B1B Essence of Calculus — Ep 1 (watched 3x for deep understanding)~~ | 20 min | DONE |
+| 3 | ~~3B1B Neural Networks — Ch 2: Gradient Descent~~ | 20 min | DONE |
+| 4 | ~~3B1B Neural Networks — Ch 3: Backpropagation~~ | 20 min | DONE |
 
-**Don't try to finish all of Week 1 today. Just the first chunk.**
+**Pivoted from full Calculus series → focused on derivative intuition + NN-specific videos. Better use of time for ML goals. Notes written.**
+
+**~2 hrs of Course 2 Week 2 remaining. Will finish on Friday.**
 
 ---
 
 ## Thursday — DSA (1.5-2 hrs)
-**Topic: Arrays + HashMaps — Easy level**
+**Topic: Arrays + HashMaps — Easy/Medium level**
 
 | Order | What | Time |
 |-------|------|------|
@@ -63,35 +65,41 @@
 ---
 
 ## Friday — ML Theory (1.5-2 hrs)
-**Topic: Continue Course 2 Week 1 + Linear Algebra**
+**Topic: Finish Course 2 Week 2 + 3B1B Calculus + Linear Algebra**
 
 | Order | What | Time |
 |-------|------|------|
-| 1 | Continue Andrew Ng Course 2 Week 1 — next 4-5 videos (TensorFlow implementation, forward propagation, etc.) | 60-70 min |
-| 2 | Watch 3Blue1Brown Ep 4: Matrix multiplication as composition | 15 min |
-| 3 | Think about: in a neural network, you multiply inputs by weight matrix W1, then apply activation, then multiply by W2. Each multiplication is a transformation. What does "stacking layers" mean geometrically? Write a note. | 15 min |
+| 1 | Finish Course 2 Week 2 — remaining ~2 hrs of backprop/derivatives + complete Week 2 practice lab. **(Priority — clear this today.)** | 60-70 min |
+| 2 | Watch 3B1B Calculus Ep 3: Power rule, chain rule intro | 15 min |
+| 3 | Watch 3B1B Linear Algebra Ep 3: Linear transformations and matrices | 15 min |
+| 4 | Reflect: the chain rule you just watched IS backpropagation. Write a note connecting the two. | 10 min |
 
-**Course 2 Week 1 should be ~70-80% done by end of Friday.**
+**Course 2 Week 2: DONE after today. Week 3 starts Saturday.**
 
 ---
 
 ## Saturday — ML Deep Work (5 hrs)
-**Topic: Finish Course 2 Week 1 + House price prediction loose ends**
+**Topic: Start Course 2 Week 3 (ML Advice) + Normal Equation deep dive + Math**
 
 ### Morning block (2.5 hrs)
 | Order | What | Time |
 |-------|------|------|
-| 1 | Finish remaining Course 2 Week 1 videos | 30-40 min |
-| 2 | Complete the Week 1 practice lab / programming assignment | 60-70 min |
+| 1 | Start Course 2 Week 3 (Advice for applying ML). Watch first 4-5 videos — bias/variance tradeoff, diagnosing errors, error analysis. | 50-60 min |
+| 2 | Think about: Andrew Ng talks about bias vs variance. How does this relate to Ridge (alpha too high = underfitting = high bias, alpha too low = overfitting = high variance)? You already saw this in your Ridge experiments. Write a note. | 10 min |
 | 3 | Take a 10 min break. Walk around. | 10 min |
-| 4 | Re-read the [Eli Bendersky Normal Equation derivation](https://eli.thegreenplace.net/2014/derivation-of-the-normal-equation-for-linear-regression/) — the deeper resource. You've read the beginner one on Monday, now go one level deeper. Don't worry if the full derivation is fuzzy — focus on the big picture. | 30-40 min |
+| 4 | Continue Course 2 Week 3 — next 2-3 videos (iterative development, data-centric approach). | 30-40 min |
+| 5 | Read the [Eli Bendersky Normal Equation derivation](https://eli.thegreenplace.net/2014/derivation-of-the-normal-equation-for-linear-regression/) — the deeper resource. You read the beginner one on Monday, now go one level deeper. Focus on the big picture. | 30-40 min |
 
 ### Afternoon block (2.5 hrs)
 | Order | What | Time |
 |-------|------|------|
-| 5 | ~~**Task 4**: Ridge regularization reasoning. Ran experiment notebook comparing α=0,1,10,100. Understood: αI increases diagonal → bigger denominator in inverse → smaller weights. Connected to bias-variance tradeoff.~~ | 40-50 min | DONE (pulled forward from Saturday) |
-| 6 | ~~**Fix the .copy() bug** in K-fold CV notebook. Added `.copy()` to both `test_df` and `train_df`. Verified outputs unchanged — safety fix, not correctness fix.~~ | 20-30 min | DONE (pulled forward from Saturday) |
-| 7 | Watch 3Blue1Brown Ep 5: The determinant (if time permits) | 15 min |
+| 6 | Watch 3B1B Calculus Ep 4-5 (chain rule deep dive + exponentials). The chain rule IS backpropagation — this is the math behind what Andrew Ng taught you in Week 2. | 30 min |
+| 7 | Watch 3B1B Linear Algebra Ep 4: Matrix multiplication as composition. Think about: in a neural network, multiplying inputs by W1, then activation, then W2 — each is a transformation. Write a note. | 20 min |
+| 8 | Watch 3B1B Linear Algebra Ep 5: The determinant | 15 min |
+| 9 | Watch 3B1B's [Neural Networks video (Ch 1)](https://www.youtube.com/watch?v=aircAruvnKk) — 20-min visual explanation of what neural networks do. Connects perfectly to everything you learned this week. | 20 min |
+| 10 | Open your house price prediction project. Ask yourself: "Could a neural network do better than Ridge on this data? Why or why not?" Write 3-4 sentences. | 15 min |
+
+**Course 2 Week 3 should be ~60-70% done by end of Saturday.**
 
 ---
 
@@ -101,29 +109,33 @@
 ### ML block (2.5 hrs)
 | Order | What | Time |
 |-------|------|------|
-| 1 | Start Andrew Ng Course 2, Week 2 (Neural network training — backpropagation). Watch first 3-4 videos. | 50-60 min |
-| 2 | Watch 3Blue1Brown's [Neural Networks video (Ch 1)](https://www.youtube.com/watch?v=aircAruvnKk) — this is separate from the linear algebra series. It's a 20-min visual explanation of what neural networks actually do. Pairs perfectly with Course 2. | 20 min |
-| 3 | Open your house price prediction project. Look at your data, your pipeline, your results. Ask yourself: "Could a neural network do better than Ridge on this data? Why or why not?" Write 3-4 sentences. This is your first "think before you compute" moment for neural networks. | 20 min |
+| 1 | Finish Course 2 Week 3 — remaining videos + practice lab / optional lab. | 50-60 min |
+| 2 | Watch 3B1B Calculus Ep 6: Implicit differentiation (if time; skip if behind) | 15 min |
+| 3 | Watch 3B1B Linear Algebra Ep 6: Inverse matrices, column space, null space | 15 min |
 | 4 | Browse Kaggle for classification datasets. Look at 3-4 options for Project 2 (loan default, customer churn, credit card fraud). Don't start the project — just bookmark 2 datasets that interest you. Read their descriptions. Think about what features they have. | 30-40 min |
+| 5 | Write a summary note for the week: "What are the 3 most important things I learned about neural networks and ML advice this week?" | 15 min |
 
 ### DSA block (1 hr)
 | Order | What | Time |
 |-------|------|------|
-| 5 | **Problem 7**: [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — medium. Try 20 min, check NeetCode if stuck. | 25-30 min |
-| 6 | **Problem 8**: [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) — easy, two pointers pattern. | 20-25 min |
-| 7 | Review all pattern notes from the week. Can you name the pattern for each of the 8 problems without looking at the code? | 5-10 min |
+| 6 | **Problem 7**: [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — medium. Try 20 min, check NeetCode if stuck. | 25-30 min |
+| 7 | **Problem 8**: [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) — easy, two pointers pattern. | 20-25 min |
+| 8 | Review all pattern notes from the week. Can you name the pattern for each of the 8 problems without looking at the code? | 5-10 min |
 
 ### Buffer (1 hr)
 Use this for whatever needs catching up. If everything's done, rest. Don't force it.
 
 ---
 
-## Week 1 Targets
+## Week 1 Targets (revised)
 
 | Category | Target | How to verify |
 |----------|--------|---------------|
-| Course 2 | Week 1 complete, Week 2 started | Assignment submitted, first 3-4 videos of Week 2 watched |
-| 3Blue1Brown | Episodes 1-5 of Linear Algebra + 1 Neural Networks video | Notes written connecting videos to ML concepts |
+| Course 2 | Week 2 complete, Week 3 complete or nearly complete | Week 2 lab done, Week 3 videos + lab done |
+| 3B1B Calculus | Episodes 1-6 (or 1-5 minimum) | Notes connecting chain rule to backprop |
+| 3B1B Linear Algebra | Episodes 1-6 (Ep 1-2 done, 3-6 this week) | Notes connecting matrices to NN weight multiplication |
+| 3B1B Neural Networks | Chapter 1 video watched | — |
+| Normal Equation (deeper) | Eli Bendersky derivation read | Can explain the big picture, even if details are fuzzy |
 | Normal Equation | ~~Task 3 done — can explain in own words~~ | ~~Written explanation in notes~~ | DONE Day 1 |
 | Ridge reasoning | ~~Task 4 done — can reason about αI~~ | ~~Written reasoning in notes + experiment notebook~~ | DONE Day 1 |
 | .copy() bug | ~~Fixed and verified~~ | ~~Notebook re-runs with same results~~ | DONE Day 1 |

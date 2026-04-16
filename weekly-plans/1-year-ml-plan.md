@@ -47,58 +47,92 @@ Not equal depth. One deep pillar (classical ML) + solid supporting areas.
 
 **Exam weeks**: DSA only (1 easy/day, 30 min). Everything else → MCA.
 
-**Total usable hours over 12 months: ~700-750**
+**Total usable hours over 13 months: ~680-720** (44 full-capacity weeks × 14.5 + ~12 exam/reduced weeks × 3.5)
 
 ---
 
 ## Phase 1: Foundations (Mid-April → End of May 2026)
 ### ~7 weeks | Full capacity
 
+**Status entering mid-April (Week 1 in progress):**
+- Course 2: ~50% done (Week 1 DONE, Week 2 backprop/derivatives nearly done)
+- House price loose ends: ALL DONE (Normal Equation, Ridge reasoning, .copy() bug)
+- 3B1B Linear Algebra: Episodes 1-2 done
+- DSA: 3 problems done (Two Sum, Contains Duplicate, Valid Anagram)
+
+### Sub-timeline (remaining ~6.5 weeks)
+
+```
+Rest of Week 1 + Week 2 (mid-late April):
+  → Finish Course 2 Week 2 (complete backprop section)
+  → Course 2 Week 3 (ML advice: bias/variance, error analysis, iterative development)
+  → 3B1B Calculus series (chain rule, derivatives — reinforces backprop NOW)
+  → 3B1B Linear Algebra continue (Ep 3-8)
+  → DSA easies
+
+Weeks 3-4 (late April - early May):
+  → Course 2 Week 4 (Decision Trees, Random Forest, XGBoost)
+  → 3B1B Linear Algebra (Ep 9-16)
+  → Scout & pick dataset for Project 2
+  → Start Project 2 (EDA + logistic regression baseline)
+  → DSA easies
+
+Weeks 5-7 (May):
+  → Project 2 deep work (all models + SHAP + W&B + FastAPI)
+  → Blog post 1 (format house price notes → publish)
+  → DSA easies → first mediums
+```
+
 ### ML Learning
-- [ ] **Andrew Ng Course 2**: Advanced Learning Algorithms
-  - Neural networks (forward prop, backprop, activation functions)
-  - Decision trees & tree ensembles (random forest, XGBoost)
-  - Bias-variance tradeoff, ML development advice
-  - **Time**: ~25-30 hrs
-- [ ] **Finish house price prediction loose ends**
-  - Task 3: Understand Normal Equation
-  - Task 4: Reason about why Ridge regularization works (alpha*I in the equation)
-  - Fix the `.copy()` bug in K-fold CV
-  - **Time**: ~5 hrs
+- [x] ~~**Finish house price prediction loose ends**~~ — ALL DONE
+  - ~~Task 3: Understand Normal Equation~~ DONE
+  - ~~Task 4: Reason about why Ridge regularization works~~ DONE
+  - ~~Fix the `.copy()` bug in K-fold CV~~ DONE
+- [ ] **Code from scratch: Logistic regression gradient descent** (~3-4 hrs, alongside Course 2)
+  - Implement sigmoid, cost function, gradient update from scratch in numpy. No sklearn.
+  - This is interview gold: "I didn't just call sklearn — I implemented it myself to understand what's happening under the hood."
+- [ ] **Andrew Ng Course 2 — remaining ~50%**:
+  - ~~Week 1: Neural network basics, forward propagation~~ (DONE)
+  - Week 2: Backpropagation, derivatives, activation functions (IN PROGRESS — last section)
+  - Week 3: Advice for ML (bias/variance tradeoff, error analysis, iterative development)
+  - Week 4: Decision Trees, tree ensembles (random forest, XGBoost)
+  - **Time remaining**: ~8-12 hrs
 
 ### Math (alongside ML, not separate)
-- [ ] **3Blue1Brown "Essence of Linear Algebra"** (YouTube, 16 episodes)
-  - Vectors, linear transformations, matrix multiplication, determinants, eigenvalues
-  - Watch 2-3 episodes per week alongside Course 2
-  - **Time**: ~8 hrs
-- [ ] **3Blue1Brown "Essence of Calculus"** (YouTube)
-  - Derivatives, chain rule, gradients — connects directly to backpropagation
+- [ ] **3Blue1Brown "Essence of Calculus"** (YouTube) — DO THIS FIRST
+  - Derivatives, chain rule, gradients
+  - Watch NOW alongside your backprop study — the chain rule IS backpropagation
   - **Time**: ~6 hrs
+- [ ] **3Blue1Brown "Essence of Linear Algebra"** (YouTube, 14 episodes remaining)
+  - ~~Ep 1: Vectors~~ DONE
+  - ~~Ep 2: Linear combinations, span, basis vectors~~ DONE
+  - Ep 3-16: Linear transformations, matrix multiplication, determinants, eigenvalues
+  - Continue 2-3 per week through May
+  - **Time remaining**: ~7 hrs
 
 ### Project
 - [ ] **Project 2: Binary Classification** (Logistic Regression → Decision Trees → XGBoost)
+  - **Can start earlier** — Course 2 finishes by Week 3-4 instead of Week 6-7. Decision Trees from Course 2 Week 4 directly feeds into this project.
   - Dataset: Loan default prediction or customer churn (pick real data from Kaggle/UCI)
   - Must cover: logistic regression, decision trees, random forest, XGBoost comparison
   - Must cover: class imbalance handling, precision/recall/F1, ROC-AUC, confusion matrix
+  - Must cover: **Cross-validation** — apply what you learned in Project 1. Use sklearn Pipeline + cross_val_score, or your manual CV loop. Every model comparison must be CV-backed, not single-split.
+  - Must cover: **Hyperparameter tuning** — use GridSearchCV or RandomizedSearchCV with CV to find best hyperparameters for your top model. No more "I tried a few values manually."
+  - Must cover: **Domain-driven feature engineering** — create at least 3-5 derived features beyond raw columns (e.g., income-to-debt ratio, credit utilization rate, years-since-last-default). Document WHY each was created and whether it helped.
   - Must cover: **SHAP values** for model interpretability — explain WHY the model predicts what it does
   - Must cover: **Experiment tracking** — use [Weights & Biases](https://wandb.ai/) (free tier) or MLflow to log all model runs, metrics, hyperparameters
   - Must cover: **Serve best model via FastAPI** — one POST endpoint that takes features, returns prediction. You already know APIs from SDE work — this takes 3-4 hrs max.
   - Write notes like you did for house price prediction — tradeoffs, failures, intuitions
   - Document your EDA process explicitly: what did raw data look like? What quality issues? What did visualizations reveal?
-  - **Interview story**: "I compared 4 models on an imbalanced classification problem. XGBoost won at 0.89 AUC-ROC, outperforming logistic regression by 12%. I used SHAP to explain predictions — income-to-debt ratio was 3x more important than credit score. I tracked all experiments in W&B and served the model via FastAPI."
+  - **Interview story**: "I compared 4 models on an imbalanced classification problem using 5-fold cross-validation. XGBoost won at 0.89 AUC-ROC, outperforming logistic regression by 12%. I tuned hyperparameters with RandomizedSearchCV, used SHAP to explain predictions — income-to-debt ratio was 3x more important than credit score. Tracked all experiments in W&B and served the model via FastAPI."
   - **Time**: ~35-40 hrs
 
 ### DSA
 - [ ] **Focus areas**: Arrays, Strings, HashMaps, Two Pointers
-- [ ] **Target**: 25-30 easy problems
+- [x] ~~Two Sum, Contains Duplicate, Valid Anagram~~ (3 done)
+- [ ] **Remaining target**: 22-27 more easy problems
 - [ ] **Approach**: Pattern-based (NeetCode.io or Sean Prashad's LeetCode Patterns)
-- [ ] **Time**: ~25-30 hrs (1.5 hrs × 2 days/week + 1 hr Sunday)
-
-### Month 1 checkpoint (end of April):
-- Course 2: 50% done
-- 3Blue1Brown Linear Algebra: 8/16 episodes watched
-- DSA: 12-15 easy problems solved
-- Normal Equation understood
+- [ ] **Time remaining**: ~22-28 hrs
 
 ### Standing Out: First blog post
 - [ ] **Set up blog** on Hashnode or Medium
@@ -109,9 +143,34 @@ Not equal depth. One deep pillar (classical ML) + solid supporting areas.
   - **Time**: ~5-6 hrs
 - [ ] Share on LinkedIn
 
+### Phase 1 Time Budget (revised with progress)
+| Task | Remaining hours |
+|------|----------------|
+| Course 2 (remaining ~50%) | 8-12 |
+| House price loose ends | ~~5~~ → 0 (DONE) |
+| 3B1B Calculus | 6 |
+| 3B1B Linear Algebra (14 episodes left) | 7 |
+| Project 2 (full incl SHAP/W&B/FastAPI) | 35-40 |
+| DSA (22-27 problems remaining) | 22-28 |
+| Blog post 1 + setup | 5-6 |
+| **Total remaining** | **83-99** |
+| **Available (~6.5 weeks × ~14.5)** | **~94** |
+
+**Fits well.** Low end has 11 hrs buffer. High end is only 5 hrs over.
+
+### Month 1 checkpoint (end of April):
+- Course 2: Complete or nearly complete (only Week 4 Decision Trees may remain)
+- 3Blue1Brown Calculus: 60%+ done (complete by mid-May)
+- 3Blue1Brown Linear Algebra: 6-8/16 episodes done
+- Normal Equation: DONE
+- Ridge reasoning: DONE
+- .copy() bug: DONE
+- DSA: 12-15 easy problems solved
+- Dataset for Project 2: Selected
+
 ### Month 2 checkpoint (end of May):
 - Course 2: Complete
-- Classification project: In progress or done
+- Classification project: In progress or done (core models + SHAP + W&B + FastAPI)
 - 3Blue1Brown: Both series done
 - DSA: 25-30 easy problems, started first mediums
 - Blog post 1: Published
@@ -131,7 +190,7 @@ Not equal depth. One deep pillar (classical ML) + solid supporting areas.
 ### Month 3 checkpoint (end of June):
 - MCA exams: in progress / done
 - DSA: 10-15 more problems (maintaining)
-- Classification project: Complete (even if finished during exam window gaps)
+- Classification project: Core models done; SHAP/W&B/FastAPI may carry into Phase 2 first week
 
 ---
 
@@ -139,6 +198,9 @@ Not equal depth. One deep pillar (classical ML) + solid supporting areas.
 ### ~10 weeks | Full capacity
 
 ### ML Learning
+- [ ] **Code from scratch: K-means clustering** (~3-4 hrs, alongside Course 3)
+  - Implement centroid initialization, assignment step, update step from scratch in numpy. No sklearn.
+  - Reinforces Course 3 clustering content and prepares for Project 3.
 - [ ] **Andrew Ng Course 3**: Unsupervised Learning, Recommender Systems, RL
   - Clustering (K-means), anomaly detection, collaborative filtering
   - Reinforcement learning introduction
@@ -192,7 +254,6 @@ Not equal depth. One deep pillar (classical ML) + solid supporting areas.
 ### Month 4 checkpoint (end of July):
 - Course 3: 50% done
 - Back to full DSA pace
-- Blog platform set up
 
 ### Month 5 checkpoint (end of August):
 - Course 3: Complete
@@ -203,25 +264,24 @@ Not equal depth. One deep pillar (classical ML) + solid supporting areas.
 
 ### Month 6 checkpoint (end of September):
 - Unsupervised project: Complete with notes
-- First blog post: Published
+- Blog post 2: Published (post 1 was published in Phase 1)
 - DSA: 15+ mediums solved across different patterns
 - Math: Probability & statistics solid for interview level
 
 ---
 
 ## Phase 3: Deep Learning (October → Mid-November 2026)
-### ~7 weeks | Full capacity | DL-focused (RL project moved to November)
+### ~7 weeks | Full capacity | Purely DL-focused (RL theory + project both moved to November)
 
 ### ML Learning
+- [ ] **Code from scratch: Single-layer neural network** (~3-4 hrs, alongside DL course)
+  - Implement forward pass, backprop, weight update from scratch in numpy. No PyTorch/Keras.
+  - By now you've implemented logistic regression + k-means from scratch. This is the third one — pattern should feel natural.
 - [ ] **Deep Learning**: Pick ONE of these paths:
   - **Option A**: Fast.ai "Practical Deep Learning for Coders" (free, top-down, code-first)
   - **Option B**: Andrew Ng Deep Learning Specialization Course 1 (Neural Networks & Deep Learning) — more theory-first
   - Recommendation: Option A if you want to build fast, Option B if you want to understand math deeply
   - **Time**: ~25-30 hrs
-- [ ] **Reinforcement Learning — THEORY ONLY in this phase**: David Silver's RL lectures (first 4-5 lectures)
-  - Core concepts: MDP, value functions, Q-learning, policy gradient (concept level)
-  - RL project comes in November, not here. Just build the theoretical foundation.
-  - **Time**: ~15-20 hrs
 
 ### Project
 - [ ] **Project 4: Deep Learning — Text Classification or Image Classification**
@@ -240,23 +300,32 @@ Not equal depth. One deep pillar (classical ML) + solid supporting areas.
 - [ ] **Time**: ~25-30 hrs
 
 ### Standing Out: Blog + GitHub
-- [ ] **Blog post 3**: "Classical ML vs Deep Learning — when to use what" (from project experience)
 - [ ] **GitHub cleanup**: Each project repo should have clean README with problem statement, approach, results, learnings
 - [ ] **LinkedIn**: Continue daily engagement habit
-- [ ] **Time**: ~6-8 hrs
+- [ ] **Time**: ~4-6 hrs
+
+### Phase 3 Time Budget
+| Task | Hours |
+|------|-------|
+| DL course | 25-30 |
+| Project 4 (DL) | 25-30 |
+| DSA + SQL | 25-30 |
+| GitHub cleanup | 4-6 |
+| **Total** | **79-96** |
+| **Available (7 weeks × 14.5)** | **~101** |
+
+**Fits with 5-22 hrs buffer.**
 
 ### Month 7 checkpoint (end of October):
 - DL course: 60%+ done
 - NN project: Started
-- RL: First 2-3 lectures watched (theory only)
 - DSA: Attempting DP and graph problems
 - Blog: 2 posts published
 
 ### Month 8 checkpoint (mid-November):
 - NN project: Complete
-- RL theory: Done (ready to start RL project)
 - DSA: 35+ mediums total
-- Blog: 3 posts published
+- Blog post 3: Published ("Classical ML vs Deep Learning — when to use what")
 
 ---
 
@@ -264,23 +333,28 @@ Not equal depth. One deep pillar (classical ML) + solid supporting areas.
 ### ~14 weeks | Split between RL project, MCA, and interview prep
 
 ### November (remaining ~2-3 weeks):
-- [ ] **Project 5: Reinforcement Learning — Agent for a control problem** (moved here from Phase 3)
-  - Environment: OpenAI Gymnasium (CartPole is minimum, LunarLander or Taxi is better)
-  - Algorithm: Q-learning → DQN if time permits
-  - Must cover: reward design, exploration vs exploitation, convergence visualization
-  - This is LIGHTER than other projects — clean implementation, solid understanding, not cutting-edge
-  - **Interview story**: "I trained an RL agent to solve [problem]. Here's how I designed the reward function, why epsilon-greedy exploration was needed, and how I knew when the agent had converged."
-  - **Time**: ~15-20 hrs
-- [ ] Resume first draft written
+- [ ] **Reinforcement Learning — Theory + Project back-to-back**:
+  - **Week 1**: David Silver's RL lectures (first 4-5 lectures). Core concepts: MDP, value functions, Q-learning, policy gradient. **Time**: ~12-15 hrs
+  - **Weeks 2-3**: **Project 5: Reinforcement Learning — Agent for a control problem**
+    - Environment: OpenAI Gymnasium (CartPole is minimum, LunarLander or Taxi is better)
+    - Algorithm: Q-learning → DQN if time permits
+    - Must cover: reward design, exploration vs exploitation, convergence visualization
+    - This is LIGHTER than other projects — clean implementation, solid understanding, not cutting-edge
+    - **Interview story**: "I trained an RL agent to solve [problem]. Here's how I designed the reward function, why epsilon-greedy exploration was needed, and how I knew when the agent had converged."
+    - **Time**: ~15-20 hrs
+  - Learn theory → immediately apply in project. No gap between learning and doing.
 - [ ] MCA study begins (light)
 - [ ] DSA: Reduced to 3-4 problems/week
+- [ ] Self-mock: Record yourself explaining Projects 1 and 2 for 10 min each. Play it back. Note where you stumble. (~1-2 hrs)
 
 ### December 2026 (MCA exams):
 - [ ] MCA exams: Primary focus
-- [ ] DSA: 1 problem/day maintenance
+- [ ] DSA: 30 min/day maintenance
 - [ ] ML: Review and revise only — no new topics
   - Re-read all your project notes
   - Practice explaining each project out loud (elevator pitch → 5-min deep dive)
+- [ ] **Resume first draft** (~5 hrs) — writing task, works as a mental break from MCA study
+- [ ] **Blog post 3**: "Classical ML vs Deep Learning — when to use what" (~4-5 hrs) — same, writing as MCA break
 
 ### January 2027 (Interview prep ramp-up):
 - [ ] **ML Theory Revision**: Go through common ML interview questions
@@ -290,6 +364,8 @@ Not equal depth. One deep pillar (classical ML) + solid supporting areas.
   - Decision tree splitting criteria (Gini, entropy)
   - Ensemble methods (bagging vs boosting)
   - Evaluation metrics (when to use what)
+  - Hyperparameter tuning (GridSearchCV vs RandomizedSearchCV, when to use which)
+  - Cross-validation (K-fold, stratified K-fold, when to use manual loop vs sklearn)
   - Data leakage, train/test contamination
   - Model interpretability (SHAP — revisit your Project 2 work)
   - Resource: [ML Interviews GitHub repo](https://github.com/alirezadir/Machine-Learning-Interviews)
@@ -309,11 +385,13 @@ Not equal depth. One deep pillar (classical ML) + solid supporting areas.
   - Each ML project with **quantified results**: not "Built a churn model" but "Built a churn prediction model using XGBoost achieving 0.89 AUC-ROC on 50K records, outperforming logistic regression baseline by 12%"
   - Blog link and GitHub link visible at the top
   - **Time**: ~5 hrs
+- [ ] **Python interview questions** (~2-3 hrs): Decorators, generators, list comprehensions, OOP basics, NumPy broadcasting, Pandas merge/groupby internals. Common at Amazon, Google IDC, Walmart Labs.
+- [ ] **Prepare "no ML experience" answer** (~1 hr): Practice a 2-min response for "Your ML is all personal projects — why should we trust you in production?" Key points: (1) 2 yrs SDE production experience — I ship code, handle production issues, know APIs; (2) 5 projects over 10 months with production tools (W&B, FastAPI, SHAP); (3) Can explain every design choice 3 levels deep; (4) My first project iterated 4 times because I wasn't satisfied with 'it works.'
 - [ ] **Mock interview with mentor**: Loop him in. "I'm almost ready. Can you do a mock round?"
 
 ### February 2027 (Final interview prep):
 - [ ] Fill gaps identified from mock interview
-- [ ] Practice coding ML algorithms from scratch (logistic regression, decision tree, k-means)
+- [ ] **Review** coding ML algorithms from scratch — you already built logistic regression (Phase 1), k-means (Phase 2), and a simple NN (Phase 3). Now just practice speed and clean whiteboard presentation.
 - [ ] DSA: Focus on weak patterns, 1 problem/day
 - [ ] **Blog post 4**: "Lessons from building 5 ML projects in 10 months" (retrospective)
 - [ ] Polish all GitHub repos — final cleanup
@@ -436,8 +514,8 @@ Sunday    [5 hrs]      ML Project (2.5 hrs) + DSA (1 hr) + Spaced Review (30 min
 
 ### MCA Exam Weeks
 ```
-Monday-Friday  [all available time]  MCA study
-Saturday-Sunday  [1 hr total]  DSA: 1 easy problem per day (maintain muscle memory)
+Monday-Sunday  [30 min/day]  DSA: 1 easy problem as a mental break from MCA (~3.5 hrs/week)
+All remaining time           MCA study
 ```
 
 ---
@@ -501,7 +579,7 @@ No separate "learn pandas" course needed. The projects ARE the course.
 
 ---
 
-
+## Resources
 
 ### ML Courses (follow in order)
 1. ~~Andrew Ng ML Specialization — Course 1~~ (DONE)
@@ -547,15 +625,15 @@ No separate "learn pandas" course needed. The projects ARE the course.
 
 | Month | Date | ML Progress | DSA + SQL | Standing Out | Other |
 |-------|------|-------------|-----------|--------------|-------|
-| 1 | Apr 2026 | Course 2: 50%, Linear algebra started | 12-15 easy | — | — |
-| 2 | May 2026 | Course 2: Done, Classification project started | 25-30 easy, first mediums | Blog post 1, Blog setup | — |
+| 1 | Apr 2026 | Course 2: ~complete, Calculus 60%+, LA: 6-8/16 | 12-15 easy | — | — |
+| 2 | May 2026 | Course 2: Done, Classification project in progress or done | 25-30 easy, first mediums | Blog post 1, Blog setup | — |
 | 3 | Jun 2026 | Maintenance only | 10-15 (maintaining) | — | MCA exams |
 | 4 | Jul 2026 | Course 3: 50% | Back to full pace | — | MCA done |
 | 5 | Aug 2026 | Course 3: Done, Géron Ch 1-5 | Medium patterns + SQL started | Target companies researched | — |
 | 6 | Sep 2026 | Unsupervised project done, Géron Ch 6-8 | 15+ mediums, SQL basics solid | Blog post 2, LinkedIn active | — |
-| 7 | Oct 2026 | DL course 60%, NN project started | DP & graphs, SQL continues | Blog post 3 | — |
-| 8 | Nov 2026 | NN project done, RL project started | 35+ mediums total | Resume first draft | MCA prep starts |
-| 9 | Dec 2026 | RL project done, revision | Maintenance | GitHub polished | MCA exams |
+| 7 | Oct 2026 | DL course 60%, NN project started | DP & graphs, SQL continues | — | — |
+| 8 | Nov 2026 | NN project done, RL theory + project | 35+ mediums total | Self-mock done | MCA prep starts |
+| 9 | Dec 2026 | RL project done, revision | Maintenance | Blog post 3, Resume draft, GitHub polished | MCA exams |
 | 10 | Jan 2027 | ML theory + system design, SQL polish | Maintenance | Resume final, Mentor mock | Interview prep |
 | 11 | Feb 2027 | Final interview prep, fill gaps | Weak patterns | Blog post 4, GitHub final | Ready to apply |
 | 12 | Mar 2027 | Applications via referrals | Interview-ready | Applications sent | Interviewing |
@@ -581,5 +659,8 @@ No separate "learn pandas" course needed. The projects ARE the course.
 
 *Plan created: April 12, 2026*
 *Plan v2 revised: April 12, 2026 (after external review)*
+*Plan v4 revised: April 15, 2026 (two external reviews applied)*
 *Changes in v2: +1 month timeline, +SHAP/interpretability, +experiment tracking (W&B), +FastAPI serving, +ML system design, +SQL moved earlier, +blog post 1 moved earlier, Phase 3 restructured (RL project → November), +networking strategy, +resume quantification, +Géron Ch 4, +target companies research*
+*Changes in v3: Phase 1 progress update, Calculus-first reorder, CV + hyperparameter tuning in Project 2, Resources header, total hours to 680-720, RL theory paired with RL project in Nov, Month 1 math softened, exam week DSA fixed, blog/checkpoint inconsistencies fixed*
+*Changes in v4: November deloaded (blog 3 + resume → December as MCA study breaks), code-from-scratch spread across Phases 1-3 (logistic reg, k-means, simple NN), domain-driven feature engineering explicit in Project 2, self-mock added in Nov, Python interview questions + "no ML experience" answer added to Jan prep, Month 1 summary table aligned*
 *Next review: End of April 2026 (Month 1 checkpoint)*
