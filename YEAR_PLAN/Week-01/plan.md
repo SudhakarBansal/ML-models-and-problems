@@ -64,17 +64,17 @@
 
 ---
 
-## Friday — ML Theory (1.5-2 hrs)
+## Friday — ML Theory (1.5-2 hrs) ✅ DONE
 **Topic: Finish Course 2 Week 2 + 3B1B Calculus + Linear Algebra**
 
 | Order | What | Time |
 |-------|------|------|
-| 1 | Finish Course 2 Week 2 — remaining ~2 hrs of backprop/derivatives + complete Week 2 practice lab. **(Priority — clear this today.)** | 60-70 min |
-| 2 | Watch 3B1B Calculus Ep 3: Power rule, chain rule intro | 15 min |
-| 3 | Watch 3B1B Linear Algebra Ep 3: Linear transformations and matrices | 15 min |
-| 4 | Reflect: the chain rule you just watched IS backpropagation. Write a note connecting the two. | 10 min |
+| 1 | ~~Finish Course 2 Week 2 — remaining ~2 hrs of backprop/derivatives + complete Week 2 practice lab. **(Priority — clear this today.)**~~ | 60-70 min | DONE |
+| 2 | ~~Watch 3B1B Calculus Ep 3: Power rule, chain rule intro~~ | 15 min | DONE |
+| 3 | ~~Watch 3B1B Linear Algebra Ep 3: Linear transformations and matrices~~ | 15 min | DONE |
+| 4 | ~~Reflect: the chain rule you just watched IS backpropagation. Write a note connecting the two.~~ | 10 min | DONE |
 
-**Course 2 Week 2: DONE after today. Week 3 starts Saturday.**
+**Course 2 Week 2: DONE. Chain rule ↔ backprop connection solidified via guided discussion. Notes written in [03-linear_transformations_and_computation_graphs.md](notes/03-linear_transformations_and_computation_graphs.md). Week 3 starts Saturday.**
 
 ---
 
