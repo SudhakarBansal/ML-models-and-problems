@@ -21,44 +21,59 @@
 
 ---
 
-## Monday — ML Theory (1.5-2 hrs)
+## Progress Update — Wed Apr 22 evening
+
+**Done:**
+- Mon: Course 2 W4 first videos + 3B1B LA Ep 7-8 ✅
+- Tue: Maximum Subarray (Kadane) + Valid Palindrome + Move Zeroes (10 problems total) ✅
+- Wed: **Finished ALL of Course 2 Week 4** in one day (including RF, XGBoost videos originally planned for Fri)
+
+**Not done Wed (deferred):**
+- 3B1B Calculus Ep 7-8 → carry to Fri
+- Reflection writeup (trees vs NN optimization) → absorb into Sat Block 1
+
+**Depth check result (5 questions on trees/ensembles):** 2 shaky, 3 failed. Rushed Course 2 W4 ≠ understood it. You described AdaBoost when asked about gradient boosting, missed feature sampling in RF, and have a Gini blind spot. **Friday is now revision day.** Project 2 modeling cannot proceed on this foundation.
+
+---
+
+## Monday ✅ DONE — ML Theory (1.5-2 hrs)
 **Topic: Course 2 Week 4 START + Linear Algebra**
 
 | Order | What | Time |
 |-------|------|------|
-| 1 | Course 2 Week 4 — first 3-4 videos (Decision Tree intuition, splitting on features, what makes a "good" split). | 50-60 min |
-| 2 | Pause and reflect: in your house price project, you used regression with continuous predictions. How does a tree handle prediction differently? Write 3 sentences on the mental model shift from "fit a line" to "ask yes/no questions." | 10 min |
-| 3 | Watch 3B1B Linear Algebra Ep 7: Dot products and duality | 15 min |
-| 4 | Watch 3B1B Linear Algebra Ep 8: Cross products (skim — less critical for ML, 10 min OK) | 10-15 min |
-
-**Done. Don't push into Project 2 today — Saturday is the right block for that.**
+| 1 | ~~Course 2 Week 4 — first 3-4 videos (Decision Tree intuition, splitting on features).~~ DONE | 50-60 min |
+| 2 | ~~Reflect: tree prediction vs regression. Mental model shift.~~ DONE | 10 min |
+| 3 | ~~3B1B Linear Algebra Ep 7: Dot products and duality~~ DONE | 15 min |
+| 4 | ~~3B1B Linear Algebra Ep 8: Cross products~~ DONE | 10-15 min |
 
 ---
 
-## Tuesday — DSA (1.5-2 hrs)
+## Tuesday ✅ DONE — DSA (1.5-2 hrs)
 **Topic: Clear carry-over + Two Pointers pattern intro**
 
 | Order | What | Time |
 |-------|------|------|
-| 1 | **Carry-over: [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)** — Kadane's algorithm. Try 25 min on your own first. Hint if stuck: "what does the answer look like if you process left-to-right?" Then NeetCode if needed. | 30-40 min |
-| 2 | Write the Kadane pattern in one line ("running sum, reset when negative"). | 5 min |
-| 3 | **Problem 9**: [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) — first Two Pointers problem. The pattern: two indices moving toward each other. | 20-25 min |
-| 4 | **Problem 10**: [Move Zeroes](https://leetcode.com/problems/move-zeroes/) — Two Pointers, in-place modification. | 20-25 min |
-| 5 | One-line pattern note for each. Group your notes by pattern (Arrays/Hashing vs Two Pointers) — start a real reference doc. | 10 min |
+| 1 | ~~**Carry-over: [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)** — Kadane's algorithm.~~ DONE | 30-40 min |
+| 2 | ~~Pattern note for Kadane.~~ DONE | 5 min |
+| 3 | ~~**Problem 9**: [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)~~ DONE | 20-25 min |
+| 4 | ~~**Problem 10**: [Move Zeroes](https://leetcode.com/problems/move-zeroes/)~~ DONE | 20-25 min |
+| 5 | ~~Pattern notes grouped.~~ DONE | 10 min |
 
-**Target: 3 problems. Running total: 10 problems.**
+**Target hit: 10 problems total.**
 
 ---
 
-## Wednesday — ML Theory (1.5-2 hrs)
+## Wednesday ⚠️ PARTIAL — ML Theory
 **Topic: Course 2 Week 4 — splitting criteria + Calculus**
 
-| Order | What | Time |
-|-------|------|------|
-| 1 | Course 2 Week 4 — next videos (information gain, entropy, Gini impurity). This is the math behind "what makes a good split." | 45-60 min |
-| 2 | Reflect: entropy is high when classes are mixed, low when pure. Why does the tree prefer splits that REDUCE entropy? Write 2-3 sentences. | 10 min |
-| 3 | Watch 3B1B Calculus Ep 7 + Ep 8 (limits, integration intro) | 25-30 min |
-| 4 | Quick connection note: gradient descent (Course 2 Week 2) and "find best split" (Week 4) are both optimization. What's different about how trees optimize vs how NN optimize? One paragraph. | 10 min |
+| Order | What | Status |
+|-------|------|--------|
+| 1 | ~~Course 2 Week 4 — all remaining videos (RF, XGBoost, ensembles).~~ **DONE — finished entire Course 2 W4 today, exceeding plan.** | ✅ DONE |
+| 2 | Reflect: why trees prefer splits that reduce entropy. | ⏭️ SKIPPED (out of energy) — rolled into Sat Block 1 |
+| 3 | 3B1B Calculus Ep 7 + Ep 8 (limits, integration intro) | ⏭️ SKIPPED — carry to Fri |
+| 4 | Tree optimization vs NN optimization note. | ⏭️ SKIPPED — rolled into Sat Block 1 |
+
+**Flag:** Finishing the videos ≠ understanding the material. Depth check failed 3/5. Revision ordered for Fri.
 
 ---
 
@@ -77,67 +92,78 @@
 
 ---
 
-## Friday — ML Theory (1.5-2 hrs)
-**Topic: Course 2 Week 4 wrap-up + Code-from-scratch LR planning**
+## Friday — ENSEMBLE REVISION DAY (1.5-2 hrs)
+**Topic: Fix the tree/ensemble depth gap via StatQuest**
+
+Why Friday is now revision day: your 5-question self-check revealed that (a) you described AdaBoost when asked about gradient boosting, (b) you missed feature sampling in Random Forest, (c) Gini is a blind spot. Course 2 "done" is meaningless if you can't 3-level-deep it in an interview. Fix it NOW — before Project 2 starts. [Josh Starmer's StatQuest](https://www.youtube.com/c/joshstarmer) is the clearest ensemble material online. Watch in order:
 
 | Order | What | Time |
 |-------|------|------|
-| 1 | Course 2 Week 4 — finish remaining videos (Random Forest, ensembles, XGBoost intro). | 50-60 min |
-| 2 | If lab is included, do the practice lab (decision tree on a small dataset). | 20-30 min |
-| 3 | **Plan tomorrow's code-from-scratch LR**: Open a new notebook. Write a TODO list (cell with markdown): (1) sigmoid function (2) BCE cost function (3) gradient computation (4) training loop with gradient descent (5) test on toy synthetic data (6) compare to sklearn. Do NOT start coding — just plan. | 15 min |
-| 4 | Watch 3B1B Linear Algebra Ep 9: Cramer's rule (geometric intuition) | 15 min |
+| 1 | StatQuest: **Gini Impurity** — fills the Gini gap | 10 min |
+| 2 | StatQuest: **Random Forests Part 1 — Building, Using, Evaluating** — pay attention to what RF randomizes *at each split*, not just per tree | 15 min |
+| 3 | StatQuest: **AdaBoost, Clearly Explained** — this is what you described when asked about XGBoost. Watch to cement the contrast. | 20 min |
+| 4 | StatQuest: **Gradient Boost Part 1 — Regression Main Ideas** — THE video that fixes Q5. Pay attention to what each new tree is trained to predict. | 15 min |
+| 5 | StatQuest: **XGBoost Part 1 — Regression** (if time) | 20 min |
+| 6 | 3B1B Calculus Ep 7 (carry-over from Wed) — limits | 15 min |
 
-**Course 2 Week 4 should be DONE or 90% done by end of Friday.**
+**Do NOT take written notes during the videos — watch cleanly first. Notes happen Saturday Block 1, from memory.**
 
 ---
 
-## Saturday — Project 2 IGNITION (5 hrs)
-**The big day. EDA + LR from scratch + sklearn baseline.**
+## Saturday — Project 2 IGNITION (compressed, 5 hrs)
+**Block 1 is non-negotiable. This is where Course 2 W4 actually becomes yours.**
 
-### Block 1: Telco Churn EDA (1.5 hrs)
+### Block 1: Rewrite the 5 Depth-Check Answers from Memory (1 hr)
 
-Set up your project directory like House Price project: `Telco-churn-classification/data/`, `model/`, `notes/`.
+After Friday's StatQuest watch, close all tabs. Create new file: `Telco-churn-classification/notes/00-decision-trees-and-ensembles.md`. Answer the 5 questions **without peeking at any resource**, in your own words, with concrete examples:
+
+1. Why do tree models not need feature scaling? (Think: what arithmetic operation does a tree do at a split?)
+2. Bagging vs boosting — mechanism AND which reduces variance vs bias. What does RF randomize beyond bootstrap?
+3. How do Random Forest trees become *different* enough to benefit the ensemble?
+4. Gini vs entropy — do they produce different trees in practice? Entropy shape for binary vs 3-class.
+5. In gradient boosting, what is each new tree trained to predict? How does this differ from AdaBoost?
+
+Then open StatQuest + Course 2 notes and fact-check yourself. Correct anything wrong. **This file becomes your permanent tree/ensemble reference — you'll re-read it every Sunday spaced-review cycle.**
+
+### Block 2: Telco Churn EDA (1.5 hrs)
+
+Set up: `Telco-churn-classification/data/`, `model/`, `notes/`.
 
 | Order | What | Time |
 |-------|------|------|
-| 1 | Create new notebook `01-eda.ipynb`. Load CSV. Run `.info()`, `.describe()`, `.head()`. | 15 min |
-| 2 | Investigate the gotchas you already know about: (a) `TotalCharges` — which rows are blank? Why? (Hint: look at their `tenure`.) Decide handling. (b) `Churn` class balance — what % positive? (c) `customerID` — drop. | 30 min |
-| 3 | Visualize: distribution of `tenure`, `MonthlyCharges`, `Contract`, `PaymentMethod` split by `Churn`. Pick 4-5 plots that tell a story. Don't make 30 random plots. | 30 min |
-| 4 | Write a markdown summary in the notebook: "What did EDA reveal? What are my hypotheses about which features will matter most?" 5-6 bullet points. | 15 min |
+| 1 | New notebook `01-eda.ipynb`. Load CSV. `.info()`, `.describe()`, `.head()`. | 15 min |
+| 2 | Investigate the gotchas: (a) `TotalCharges` blank rows — which ones? Why? (Hint: look at their `tenure`.) Decide handling. (b) `Churn` class balance — % positive? (c) Drop `customerID`. | 30 min |
+| 3 | Visualize 4-5 plots that tell a story: `tenure`, `MonthlyCharges`, `Contract`, `PaymentMethod` split by `Churn`. Don't make 30 random plots. | 30 min |
+| 4 | Markdown summary in the notebook: "What did EDA reveal? Feature hypotheses?" 5-6 bullets. | 15 min |
 
-### Break (15 min — actually walk away from the laptop)
+### Break (15 min — walk away)
 
-### Block 2: Logistic Regression from scratch (2 hrs)
+### Block 3: Logistic Regression from scratch (2 hrs)
 
 | Order | What | Time |
 |-------|------|------|
 | 5 | New notebook `02-logistic-regression-from-scratch.ipynb`. Implement sigmoid in numpy. Test on a vector. | 15 min |
-| 6 | Implement BCE cost function. Sanity check: compute cost on known inputs (e.g., y=1, y_pred=0.9 should give small cost; y=1, y_pred=0.1 should give large cost). | 25 min |
-| 7 | Implement gradient computation (derivative of BCE w.r.t. weights). Be careful with the dimensions — write down shapes before coding. | 30 min |
-| 8 | Training loop: initialize weights, loop N iterations, update via gradient descent, track cost over iterations. Plot the cost curve — it MUST decrease monotonically (ish). If not, something's broken. | 30 min |
-| 9 | Test on synthetic data (e.g., `make_classification` with 2 features). Compare your weights to sklearn `LogisticRegression`. They won't match exactly (different solvers) but predictions should agree on most points. | 20 min |
+| 6 | Implement BCE cost function. Sanity check with known inputs. | 25 min |
+| 7 | Implement gradient computation (derivative of BCE w.r.t. weights). Write down shapes before coding. | 30 min |
+| 8 | Training loop: init weights, loop N iterations, gradient descent updates, plot cost curve. Cost MUST decrease. | 30 min |
+| 9 | Test on `make_classification` synthetic data. Compare to sklearn `LogisticRegression` — predictions should agree on most points. | 20 min |
 
-### Block 3: sklearn LR baseline on Telco (1 hr 15 min)
+**sklearn baseline on Telco — MOVED to Sunday** (Saturday is full).
 
-| Order | What | Time |
-|-------|------|------|
-| 10 | New notebook `03-baseline-logistic-regression.ipynb`. Load cleaned data from EDA. Encode categoricals (start simple — `pd.get_dummies` is fine for now). | 30 min |
-| 11 | Single train/test split (80/20). Fit `LogisticRegression`. Print accuracy, precision, recall, F1, ROC-AUC, confusion matrix. | 20 min |
-| 12 | Write a note: what's your baseline number? Is the accuracy misleading given class imbalance? (Hint: what would a "predict everyone stays" model score?) | 15 min |
-
-**End of Saturday: You have an EDA notebook, a from-scratch LR notebook, and a sklearn baseline with metrics. This is real progress.**
+**End of Saturday: You have tree/ensemble depth notes + EDA notebook + from-scratch LR. This is real progress.**
 
 ---
 
 ## Sunday — Mixed Day (4-5 hrs)
 
-### ML Block (2 hrs)
+### ML Block (2.5 hrs) — absorbs the sklearn baseline from Saturday
 
 | Order | What | Time |
 |-------|------|------|
-| 1 | Project 2: Notebook `04-cross-validated-baseline.ipynb`. Set up sklearn `Pipeline` (imputer → scaler → LogisticRegression). Use `StratifiedKFold` with `cross_val_score` for proper CV-backed metrics. Compare to Saturday's single-split number. | 60 min |
-| 2 | If Course 2 Week 4 isn't 100% done from Friday, finish it now. | 30-45 min |
-| 3 | Write project notes file: `notes/01-eda-and-baseline.md`. Document: what the data looked like, what cleaning you did, what your baseline AUC-ROC is, what surprised you. Keep it intuition-driven like your House Price notes. | 15-20 min |
+| 1 | New notebook `03-baseline-logistic-regression.ipynb`. Load cleaned data from EDA. Encode categoricals (`pd.get_dummies` is fine). Single 80/20 split. Fit `LogisticRegression`. Print accuracy, precision, recall, F1, ROC-AUC, confusion matrix. | 50 min |
+| 2 | New notebook `04-cross-validated-baseline.ipynb`. sklearn `Pipeline` (imputer → scaler → LogisticRegression) + `StratifiedKFold` + `cross_val_score`. Compare CV numbers to the single-split number. | 60 min |
+| 3 | Write project notes file: `notes/01-eda-and-baseline.md`. Document: data shape, cleaning decisions, baseline AUC-ROC, what surprised you. Intuition-driven, like House Price notes. | 20 min |
+| 4 | 3B1B Calc Ep 8 + 3B1B LA Ep 9 (if not done) | 30 min |
 
 ### DSA Block (45 min)
 
@@ -151,8 +177,8 @@ Set up your project directory like House Price project: `Telco-churn-classificat
 | Order | What | Time |
 |-------|------|------|
 | 6 | Close all notes. Write from memory: "What were the 3 most important things I learned in the House Price project?" Don't peek. | 10 min |
-| 7 | Open House Price notes. Compare. What did you miss? What did you remember wrong? | 10 min |
-| 8 | Re-read your Week 1 note `03-linear_transformations_and_computation_graphs.md`. Does the chain rule ↔ backprop connection still feel solid? If not, re-watch 3B1B NN Ch 3 (it's only 13 min). | 10 min |
+| 7 | Open House Price notes. Compare. What did you miss? | 10 min |
+| 8 | Re-read your new `00-decision-trees-and-ensembles.md` from Saturday. Tighten any answer that reads fuzzy. | 10 min |
 
 ### Blog Setup (30-45 min) — light, just unblock for next week
 
@@ -163,20 +189,21 @@ Set up your project directory like House Price project: `Telco-churn-classificat
 
 ---
 
-## Week 2 Targets
+## Week 2 Targets (revised)
 
 | Category | Target | How to verify |
 |----------|--------|---------------|
-| Course 2 | Week 4 complete | Decision Tree, RF, XGBoost lectures + lab done |
-| 3B1B Calculus | Episodes 7-8 done (1-8 total) | Notes |
-| 3B1B Linear Algebra | Episodes 7-9 done (1-9 total) | Notes |
-| Project 2 — EDA | Notebook done with documented findings | `01-eda.ipynb` + summary in markdown cell |
-| Project 2 — LR from scratch | Working implementation, cost curve decreasing | `02-logistic-regression-from-scratch.ipynb` |
-| Project 2 — sklearn baseline | Single-split + CV-backed metrics | `03` + `04` notebooks with AUC-ROC documented |
+| Course 2 | ✅ Week 4 videos done | — |
+| Trees/ensembles depth | **Rewritten 5-Q&A file passes self-check** | `notes/00-decision-trees-and-ensembles.md` exists with correct answers |
+| 3B1B Calculus | Ep 7-8 done (1-8 total) | Notes |
+| 3B1B Linear Algebra | Ep 7-9 done (Ep 7-8 ✅, Ep 9 on Sun) | Notes |
+| Project 2 — EDA | Notebook done with findings | `01-eda.ipynb` |
+| Project 2 — LR from scratch | Cost curve decreasing, matches sklearn | `02-*.ipynb` |
+| Project 2 — sklearn baseline | Single-split + CV metrics | `03` + `04` notebooks |
 | Project 2 — notes | First project note written | `notes/01-eda-and-baseline.md` |
-| DSA | 6 more problems (Kadane + 4 easy + 1 medium) | 14 total problems with pattern notes grouped |
-| Blog | Hashnode account + draft skeleton of Post 1 | Account exists, draft saved (not published) |
-| Spaced Review | First review session done | Recall exercise + comparison written |
+| DSA | 14 problems total (Thu target: Problems 11-13) | Pattern notes grouped |
+| Blog | Hashnode account + draft skeleton | — |
+| Spaced Review | First session done | Recall + comparison |
 
 ---
 
@@ -186,7 +213,7 @@ After Week 2, here's where you should be vs the original plan:
 
 | Phase 1 deliverable | Total estimate | Done so far | Remaining |
 |---|---|---|---|
-| Course 2 (50% remaining at start) | 8-12 hrs | 8-10 hrs (W2-W4 done) | 0-2 hrs |
+| Course 2 (50% remaining at start) | 8-12 hrs | **DONE** (W2-W4 all watched; depth revision on Fri) | 0 hrs (videos) + 2 hrs (revision Fri) |
 | 3B1B Calculus | 6 hrs | ~4 hrs | ~2 hrs |
 | 3B1B Linear Algebra | 7 hrs | ~4.5 hrs | ~2.5 hrs |
 | Project 2 (EDA → models → SHAP → W&B → FastAPI) | 35-40 hrs | ~5 hrs | ~30-35 hrs |
@@ -215,5 +242,33 @@ Tell me:
 3. Any surprises from EDA (TotalCharges story, class imbalance %, anything else)
 4. Whether LR-from-scratch matched sklearn predictions (or where it diverged)
 5. Hardest DSA problem and what tripped you up
+6. **Redo the 5 tree/ensemble questions cold (no peeking). If you pass all 5, Project 2 modeling is green-lit for Week 3.**
 
 I'll adjust Week 3 based on that — Week 3 is where Project 2 goes deep (decision trees → RF → XGBoost on Telco, class imbalance handling, hyperparameter tuning).
+
+---
+
+## Lessons from Week 2 — things to watch in future
+
+These are the patterns that almost derailed you this week. Internalize them now; they'll repeat throughout the year.
+
+### 1. Finished ≠ understood
+You finished Course 2 W4 three days ahead of schedule and failed the depth check immediately after. Speed through content is worthless if you can't 3-level-deep it in an interview. **New rule for every future course/chapter/video series: before marking it "done," run a written self-check with 5 cold questions.** If you can't answer them without peeking, it's not done — regardless of whether the videos are watched.
+
+### 2. Don't treat reflection items as optional
+Every time you "ran out of energy" this week, the thing you dropped was the reflection/writing task — not the video. That's backwards. **The videos are input; the notes are the actual learning.** If you have 45 min left and a choice between (a) one more video or (b) writing the reflection for the video you just watched — choose (b) every single time.
+
+### 3. Energy budgeting — don't front-load ML
+You finished Course 2 today but had zero energy left for the rest of Wed's list. That means you over-invested in one task. **When a weekday ML session starts going 2.5 hrs on one topic, stop and move to the next item.** The plan has 3 items per ML day for a reason — breadth keeps retention higher than cramming one topic.
+
+### 4. AdaBoost vs gradient boosting (specific — carry this forward)
+This confusion will come back. Every time you encounter an "ensemble" or "boosting" concept in later projects or interviews, pause and ask: *is this reweighting examples (AdaBoost) or fitting residuals (gradient boosting)?* They look similar from far away. They're fundamentally different. Keep your `00-decision-trees-and-ensembles.md` open when you touch Project 2's tree models.
+
+### 5. Math arc is fragile — don't let it slip
+3B1B Calculus Ep 7-8 were scheduled for Wed. You skipped them. That's a one-day slip but compounds: if you skip every time ML feels heavier, by Phase 3 (DL) you'll hit calculus/linalg walls you can't push through. **Protect the math minutes. If ML theory goes over budget, cut the ML theory — not the math.**
+
+### 6. Watch for the "I already know this" trap with ensembles in Project 2
+When you implement RF and XGBoost on Telco next week, the muscle memory of "sklearn.fit(X, y)" will feel easy. That's deceptive. **For each model, before fitting, write one sentence in your notebook: "This model works by [mechanism]. It should beat LR because [reason]. If it doesn't, my explanation would be [reason]."** This forces you to use the Saturday ensemble notes as living knowledge, not dead pages.
+
+### 7. The self-check pattern is now a permanent ritual
+From now on, at the end of every course week, every project phase, every book chapter — before moving to the next thing, do a 5-question cold self-check. If you pass, move on. If you fail, revise before advancing. This is your single biggest interview-depth insurance policy for the next 11 months.
