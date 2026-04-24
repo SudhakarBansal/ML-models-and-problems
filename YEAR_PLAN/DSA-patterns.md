@@ -85,3 +85,50 @@ Precompute products/sums from one side, then combine with a scan from the other 
 1. **Before solving a new problem**: skim the pattern list. Does the new problem resemble any of these? If yes, the pattern note should trigger the right approach.
 2. **During Sunday spaced review**: pick 3 random problems from this list. Close the doc. Try to state the one-line pattern note from memory. Compare.
 3. **When adding a new entry**: write the pattern note *from memory*. If I can't, the pattern isn't consolidated — re-solve the problem on a blank page before adding it.
+
+---
+
+## Daily Pattern Drill — Curriculum (starts Mon Apr 27, Week 3)
+
+**Protocol**
+- **15-min hard cap** per drill. At the start of each study session.
+- **One new problem per day** in that day's pattern. Builds pattern fluency through varied exposure (better for interview prep than re-solving the same problem).
+- **Solve cold**: close the notebook, blank cell, start timer. No peeking at pattern reference during the 15 min.
+- If you hit the cap without solving: watch NeetCode's video, code the solution yourself (don't paste), move on. Revisit in Sunday's weakest-pattern slot.
+- Log results at the bottom of this file (date, pattern, problem, time, verdict: `clean` / `hesitated` / `failed`).
+- **Skip Saturday drill** — that's Project 2 deep-work day.
+
+> **Coordination with ML drill** (added Apr 23): DSA drill runs on **Tue / Thu / Sun**; ML drill (see `ML-drills.md`) runs on Mon / Wed / Fri / Sun. Don't stack both on the same day — keeps total drill time at 15 min/day within budget. Mon / Wed / Fri assignments in the table below act as "available backup" if you want to swap Sun's slot for a different pattern.
+
+### Rotation
+
+| Day | Pattern |
+|---|---|
+| Mon | Arrays & Hashing |
+| Tue | Two Pointers — Converging |
+| Wed | Two Pointers — Slow/Fast |
+| Thu | Sliding Window / Running State |
+| Fri | Prefix / Suffix / Running Sum |
+| Sat | — (Project day) |
+| Sun | Weakest pattern of the week (your call) |
+
+### Pre-picked problems (4 weeks)
+
+All EASY unless marked *(stretch M)*. *(stretch M)* entries will likely blow the 15-min cap on first attempt — that's expected in Weeks 5-6 as you transition to mediums.
+
+| Week | Mon (A&H) | Tue (TP-Conv) | Wed (TP-SF) | Thu (SlideWin) | Fri (Prefix) |
+|---|---|---|---|---|---|
+| **3** (Apr 27–May 3) | [#383 Ransom Note](https://leetcode.com/problems/ransom-note/) | [#345 Reverse Vowels](https://leetcode.com/problems/reverse-vowels-of-a-string/) | [#905 Sort Array by Parity](https://leetcode.com/problems/sort-array-by-parity/) | [#643 Max Avg Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/) | [#1480 Running Sum](https://leetcode.com/problems/running-sum-of-1d-array/) |
+| **4** (May 4–10) | [#205 Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) | [#680 Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/) | [#268 Missing Number](https://leetcode.com/problems/missing-number/) | [#219 Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/) | [#724 Find Pivot Index](https://leetcode.com/problems/find-pivot-index/) |
+| **5** (May 11–17) | [#169 Majority Element](https://leetcode.com/problems/majority-element/) | [#9 Palindrome Number](https://leetcode.com/problems/palindrome-number/) | [#80 Remove Duplicates II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) *(stretch M)* | [#3 Longest Substr w/o Repeat](https://leetcode.com/problems/longest-substring-without-repeating-characters/) *(stretch M)* | [#1732 Highest Altitude](https://leetcode.com/problems/find-the-highest-altitude/) |
+| **6** (May 18–24) | [#350 Intersection of 2 Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/) | [#1768 Merge Strings Alternately](https://leetcode.com/problems/merge-strings-alternately/) | [#287 Find Duplicate](https://leetcode.com/problems/find-the-duplicate-number/) *(stretch M)* | [#209 Min Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) *(stretch M)* | [#560 Subarray Sum = K](https://leetcode.com/problems/subarray-sum-equals-k/) *(stretch M)* |
+
+**Sun slot**: no pre-assignment. Pick the pattern that felt shakiest or revisit a problem you failed during the week.
+
+### Drill Log
+
+_Add one row per drill session. After a month, scan for patterns that repeatedly show `hesitated` or `failed` — that's your interview risk._
+
+| Date | Pattern | Problem (LC #) | Time | Verdict |
+|------|---------|----------------|------|---------|
+| | | | | |
