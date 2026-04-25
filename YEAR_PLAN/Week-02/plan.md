@@ -92,118 +92,129 @@
 
 ---
 
-## Friday — ENSEMBLE REVISION DAY (1.5-2 hrs)
-**Topic: Fix the tree/ensemble depth gap via StatQuest**
+## Friday ❌ SKIPPED — heavy office work
+**Topic was: Ensemble revision via StatQuest (Gini, RF, AdaBoost, Gradient Boost, XGBoost Part 1) + 3B1B Calc Ep 7**
 
-Why Friday is now revision day: your 5-question self-check revealed that (a) you described AdaBoost when asked about gradient boosting, (b) you missed feature sampling in Random Forest, (c) Gini is a blind spot. Course 2 "done" is meaningless if you can't 3-level-deep it in an interview. Fix it NOW — before Project 2 starts. [Josh Starmer's StatQuest](https://www.youtube.com/c/joshstarmer) is the clearest ensemble material online. Watch in order:
-
-| Order | What | Time |
-|-------|------|------|
-| 1 | StatQuest: **Gini Impurity** — fills the Gini gap | 10 min |
-| 2 | StatQuest: **Random Forests Part 1 — Building, Using, Evaluating** — pay attention to what RF randomizes *at each split*, not just per tree | 15 min |
-| 3 | StatQuest: **AdaBoost, Clearly Explained** — this is what you described when asked about XGBoost. Watch to cement the contrast. | 20 min |
-| 4 | StatQuest: **Gradient Boost Part 1 — Regression Main Ideas** — THE video that fixes Q5. Pay attention to what each new tree is trained to predict. | 15 min |
-| 5 | StatQuest: **XGBoost Part 1 — Regression** (if time) | 20 min |
-| 6 | 3B1B Calculus Ep 7 (carry-over from Wed) — limits | 15 min |
-
-**Do NOT take written notes during the videos — watch cleanly first. Notes happen Saturday Block 1, from memory.**
+**Carry-over to Saturday morning** (mandatory — cannot start Project 2 modeling without this).
 
 ---
 
-## Saturday — Project 2 IGNITION (compressed, 5 hrs)
-**Block 1 is non-negotiable. This is where Course 2 W4 actually becomes yours.**
+## Saturday — Salvage Day (compressed, 5 hrs)
+**Friday was lost to office work. Saturday absorbs the depth revision + EDA. LR-from-scratch and baselines push to Sunday. This is a controlled re-shuffle, not a panic.**
 
-### Block 1: Rewrite the 5 Depth-Check Answers from Memory (1 hr)
+### Block 1: Friday's Revision (carry-over) — ~90 min
 
-After Friday's StatQuest watch, close all tabs. Create new file: `Telco-churn-classification/notes/00-decision-trees-and-ensembles.md`. Answer the 5 questions **without peeking at any resource**, in your own words, with concrete examples:
+Watch in order. Verified links below.
 
-1. Why do tree models not need feature scaling? (Think: what arithmetic operation does a tree do at a split?)
+| Order | What | Link | Runtime |
+|-------|------|------|---------|
+| 1 | StatQuest: **Decision and Classification Trees** (covers Gini Impurity inside — there's no standalone Gini video) | [youtu.be/_L39rN6gz7Y](https://www.youtube.com/watch?v=_L39rN6gz7Y) | 18 min |
+| 2 | StatQuest: **Random Forests Part 1 — Building, Using, Evaluating** | [youtu.be/J4Wdy0Wc_xQ](https://www.youtube.com/watch?v=J4Wdy0Wc_xQ) | 10 min |
+| 3 | StatQuest: **AdaBoost, Clearly Explained** | [youtu.be/LsK-xG1cLYA](https://www.youtube.com/watch?v=LsK-xG1cLYA) | 21 min |
+| 4 | StatQuest: **Gradient Boost Part 1 — Regression Main Ideas** | [youtu.be/3CC4N4z3GJc](https://www.youtube.com/watch?v=3CC4N4z3GJc) | 16 min |
+| 5 | StatQuest: **XGBoost Part 1 — Regression** (drop if running over) | [youtu.be/OtD8wVaFm6E](https://www.youtube.com/watch?v=OtD8wVaFm6E) | 26 min |
+| 6 | 3B1B Calculus Ep 7 (carry-over from Wed, if time — else move to Sun) | — | 15 min |
+
+**Watch focus per video:**
+- Decision Trees: **the Gini Impurity calculation step** — that's your blind spot. Skip ahead if Josh covers basics you already know.
+- Random Forests Part 1: pay attention to what RF randomizes **at each split**, not just bootstrap sampling per tree.
+- AdaBoost: this is what you incorrectly described when asked about gradient boosting — watch to cement the contrast.
+- Gradient Boost Part 1: THE video that fixes your Q5 — what each new tree is trained to predict (residuals, not "wrong examples").
+- XGBoost Part 1: optional but useful — extends gradient boost with regularization.
+
+**Do NOT take written notes during videos. Watch cleanly first; notes come in Block 2 from memory.**
+
+### Block 2: Rewrite the 5 Depth-Check Answers from Memory — 1 hr
+
+Close all tabs. Create `Telco-churn-classification/notes/00-decision-trees-and-ensembles.md`. Answer the 5 questions **without peeking** in your own words with concrete examples:
+
+1. Why do tree models not need feature scaling? (What arithmetic operation does a tree do at a split?)
 2. Bagging vs boosting — mechanism AND which reduces variance vs bias. What does RF randomize beyond bootstrap?
 3. How do Random Forest trees become *different* enough to benefit the ensemble?
 4. Gini vs entropy — do they produce different trees in practice? Entropy shape for binary vs 3-class.
 5. In gradient boosting, what is each new tree trained to predict? How does this differ from AdaBoost?
 
-Then open StatQuest + Course 2 notes and fact-check yourself. Correct anything wrong. **This file becomes your permanent tree/ensemble reference — you'll re-read it every Sunday spaced-review cycle.**
-
-### Block 2: Telco Churn EDA (1.5 hrs)
-
-Set up: `Telco-churn-classification/data/`, `model/`, `notes/`.
-
-| Order | What | Time |
-|-------|------|------|
-| 1 | New notebook `01-eda.ipynb`. Load CSV. `.info()`, `.describe()`, `.head()`. | 15 min |
-| 2 | Investigate the gotchas: (a) `TotalCharges` blank rows — which ones? Why? (Hint: look at their `tenure`.) Decide handling. (b) `Churn` class balance — % positive? (c) Drop `customerID`. | 30 min |
-| 3 | Visualize 4-5 plots that tell a story: `tenure`, `MonthlyCharges`, `Contract`, `PaymentMethod` split by `Churn`. Don't make 30 random plots. | 30 min |
-| 4 | Markdown summary in the notebook: "What did EDA reveal? Feature hypotheses?" 5-6 bullets. | 15 min |
+Then open StatQuest + Course 2 notes and fact-check yourself. Correct anything wrong. **Permanent reference — you'll re-read it every Sunday spaced-review cycle.**
 
 ### Break (15 min — walk away)
 
-### Block 3: Logistic Regression from scratch (2 hrs)
+### Block 3: Telco Churn EDA — DEFERRED to Sunday
 
-| Order | What | Time |
-|-------|------|------|
-| 5 | New notebook `02-logistic-regression-from-scratch.ipynb`. Implement sigmoid in numpy. Test on a vector. | 15 min |
-| 6 | Implement BCE cost function. Sanity check with known inputs. | 25 min |
-| 7 | Implement gradient computation (derivative of BCE w.r.t. weights). Write down shapes before coding. | 30 min |
-| 8 | Training loop: init weights, loop N iterations, gradient descent updates, plot cost curve. Cost MUST decrease. | 30 min |
-| 9 | Test on `make_classification` synthetic data. Compare to sklearn `LogisticRegression` — predictions should agree on most points. | 20 min |
+Block 1 + Block 2 took the full Saturday session (depth-check work ran longer than planned — *correctly so*, since that was the actual blocker). EDA pushes to Sunday per the fallback ladder.
 
-**sklearn baseline on Telco — MOVED to Sunday** (Saturday is full).
+**End of Saturday actual:** project structure created (`Telco-churn-classification/{data,model,notes}/`), full tree/ensemble reference document written (`notes/00-decision-trees-and-ensembles.md`, all 5 Q&A). Q5 (gradient boosting) flagged as still shaky — re-drill in Sunday spaced review for the next 3 weeks.
 
-**End of Saturday: You have tree/ensemble depth notes + EDA notebook + from-scratch LR. This is real progress.**
+**Why this is OK**: depth gap was the real Project 2 blocker. EDA is straightforward data exploration that doesn't require deep theory. Slipping it 1 day costs nothing structural.
 
----
+### If you run out of energy mid-Saturday (fallback ladder)
 
-## Sunday — Mixed Day (4-5 hrs)
+If Block 1 + 2 done but no time for Block 3 → **EDA pushes to Sunday morning, LR-from-scratch pushes to Week 3 Saturday**. Acceptable.
 
-### ML Block (2.5 hrs) — absorbs the sklearn baseline from Saturday
+If only Block 1 done → **Block 2 (rewrite 5 Q&A) goes Sunday morning, EDA pushes to Week 3 Monday evening**. Less ideal but not fatal.
 
-| Order | What | Time |
-|-------|------|------|
-| 1 | New notebook `03-baseline-logistic-regression.ipynb`. Load cleaned data from EDA. Encode categoricals (`pd.get_dummies` is fine). Single 80/20 split. Fit `LogisticRegression`. Print accuracy, precision, recall, F1, ROC-AUC, confusion matrix. | 50 min |
-| 2 | New notebook `04-cross-validated-baseline.ipynb`. sklearn `Pipeline` (imputer → scaler → LogisticRegression) + `StratifiedKFold` + `cross_val_score`. Compare CV numbers to the single-split number. | 60 min |
-| 3 | Write project notes file: `notes/01-eda-and-baseline.md`. Document: data shape, cleaning decisions, baseline AUC-ROC, what surprised you. Intuition-driven, like House Price notes. | 20 min |
-| 4 | 3B1B Calc Ep 8 + 3B1B LA Ep 9 (if not done) | 30 min |
-
-### DSA Block (45 min)
-
-| Order | What | Time |
-|-------|------|------|
-| 4 | **Problem 14**: [Reverse String](https://leetcode.com/problems/reverse-string/) — Two Pointers, very quick. Should take 10 min. | 10-15 min |
-| 5 | Review all 14 problems' pattern notes. Can you name the pattern for each without looking? | 15-20 min |
-
-### Spaced Review (30 min) — FIRST one of the program
-
-| Order | What | Time |
-|-------|------|------|
-| 6 | Close all notes. Write from memory: "What were the 3 most important things I learned in the House Price project?" Don't peek. | 10 min |
-| 7 | Open House Price notes. Compare. What did you miss? | 10 min |
-| 8 | Re-read your new `00-decision-trees-and-ensembles.md` from Saturday. Tighten any answer that reads fuzzy. | 10 min |
-
-### Blog Setup (30-45 min) — light, just unblock for next week
-
-| Order | What | Time |
-|-------|------|------|
-| 9 | Sign up on [Hashnode](https://hashnode.com/) (recommended — better SEO, dev audience). Pick a username. Set up profile photo + 1-line bio. | 20 min |
-| 10 | Create a draft post titled "What 4 iterations of linear regression taught me about ML". Paste in raw content from your House Price notes. **Do NOT polish yet — just get the skeleton.** Editing happens in Week 3. | 15-20 min |
+If Block 1 not done → revision becomes Sunday morning, everything else slides one day. You'd start Week 3 with EDA still pending. **Tell me if it goes here so I can re-plan Week 3 properly.**
 
 ---
 
-## Week 2 Targets (revised)
+## Sunday — Mixed Day (~4-4.5 hrs) — EDA + sklearn baselines
 
-| Category | Target | How to verify |
-|----------|--------|---------------|
-| Course 2 | ✅ Week 4 videos done | — |
-| Trees/ensembles depth | **Rewritten 5-Q&A file passes self-check** | `notes/00-decision-trees-and-ensembles.md` exists with correct answers |
-| 3B1B Calculus | Ep 7-8 done (1-8 total) | Notes |
-| 3B1B Linear Algebra | Ep 7-9 done (Ep 7-8 ✅, Ep 9 on Sun) | Notes |
-| Project 2 — EDA | Notebook done with findings | `01-eda.ipynb` |
-| Project 2 — LR from scratch | Cost curve decreasing, matches sklearn | `02-*.ipynb` |
-| Project 2 — sklearn baseline | Single-split + CV metrics | `03` + `04` notebooks |
-| Project 2 — notes | First project note written | `notes/01-eda-and-baseline.md` |
-| DSA | 14 problems total (Thu target: Problems 11-13) | Pattern notes grouped |
-| Blog | Hashnode account + draft skeleton | — |
-| Spaced Review | First session done | Recall + comparison |
+LR-from-scratch shifts to Week 3 Saturday (next big block of focused time). Sunday gets EDA back from Saturday + the original Sunday baseline work.
+
+### Block A: Telco Churn EDA — 1.5 hrs
+
+| Order | What | Time |
+|-------|------|------|
+| 1 | Move `WA_Fn-UseC_-Telco-Customer-Churn.csv` from repo root into `Telco-churn-classification/data/`. New notebook `model/01-eda.ipynb`. Load CSV. `.info()`, `.describe()`, `.head()`. | 15 min |
+| 2 | Gotchas: (a) `TotalCharges` blank rows — which ones? Why? (Hint: look at their `tenure`.) Decide handling. (b) `Churn` class balance — % positive? (c) Drop `customerID`. | 30 min |
+| 3 | Visualize 4-5 plots that tell a story: `tenure`, `MonthlyCharges`, `Contract`, `PaymentMethod` split by `Churn`. Don't make 30 random plots. | 30 min |
+| 4 | Markdown summary in the notebook: "What did EDA reveal? Feature hypotheses?" 5-6 bullets. | 15 min |
+
+### Break (15 min)
+
+### Block B: sklearn baselines on Telco — 2 hrs
+
+| Order | What | Time |
+|-------|------|------|
+| 5 | New notebook `model/02-baseline-logistic-regression.ipynb`. Load cleaned data from EDA. `pd.get_dummies` for categoricals. Single 80/20 split. Fit `LogisticRegression`. Print accuracy, precision, recall, F1, ROC-AUC, confusion matrix. | 50 min |
+| 6 | New notebook `model/03-cross-validated-baseline.ipynb`. sklearn `Pipeline` (imputer → scaler → LogisticRegression) + `StratifiedKFold` + `cross_val_score`. Compare CV numbers to single-split. | 60 min |
+| 7 | Project notes: `notes/01-eda-and-baseline.md`. Data shape, cleaning decisions, baseline AUC-ROC, what surprised you. | 15 min |
+
+### DSA Block (30 min)
+
+| Order | What | Time |
+|-------|------|------|
+| 9 | **Problem 14**: [Reverse String](https://leetcode.com/problems/reverse-string/) — Two Pointers, very quick. | 10-15 min |
+| 10 | Quick scan: name the pattern for each of the 14 problems without looking at code. | 10-15 min |
+
+### Spaced Review — DEFERRED to Week 3
+
+Originally planned for today. Cut to make room for Saturday's slipped work. Re-scheduled to Week 3 Sunday — by then your `00-decision-trees-and-ensembles.md` will have a week of distance, making the review more useful anyway.
+
+### Blog Setup — DEFERRED to Week 3
+
+Cut for the same reason. Hashnode signup + post 1 skeleton moves to Week 3 Sunday (15-20 min cost — fits easily once the LR-from-scratch and baselines are done).
+
+### 3B1B catch-up — only if you have leftover time
+
+If Sunday lands under 5 hrs and you still have steam: 3B1B Calc Ep 7-8 + 3B1B LA Ep 9. Otherwise punt to Week 3 weekday slots.
+
+---
+
+## Week 2 Targets (revised after Sat depth-check overrun)
+
+| Category | Target | How to verify | Status |
+|----------|--------|---------------|--------|
+| Course 2 | Week 4 videos done | — | ✅ |
+| Trees/ensembles depth | StatQuest watched + 5-Q&A file | `notes/00-decision-trees-and-ensembles.md` | ✅ done Sat — Q5 flagged for re-drill |
+| 3B1B Calculus | Ep 7-8 done | Notes | ⚠️ slipped — flexes to Week 3 weekdays |
+| 3B1B Linear Algebra | Ep 7-9 done | Notes | ⚠️ Ep 7-8 ✅, Ep 9 → Week 3 |
+| Project 2 — EDA | Notebook with findings | `01-eda.ipynb` | ⏳ Sun (was Sat) |
+| Project 2 — LR from scratch | Cost curve decreasing, matches sklearn | `02-*.ipynb` | ⏭️ DEFERRED to Week 3 Saturday |
+| Project 2 — sklearn baseline | Single-split + CV | baseline + cv notebooks | ⏳ Sun |
+| Project 2 — notes | First project note | `notes/01-eda-and-baseline.md` | ⏳ Sun |
+| DSA | 14 problems total | Pattern notes grouped | ✅ 13 done, #14 (Reverse String) Sun |
+| Blog | Hashnode + skeleton | — | ⏭️ DEFERRED to Week 3 |
+| Spaced Review | First session | Recall + comparison | ⏭️ DEFERRED to Week 3 |
 
 ---
 
@@ -272,3 +283,9 @@ When you implement RF and XGBoost on Telco next week, the muscle memory of "skle
 
 ### 7. The self-check pattern is now a permanent ritual
 From now on, at the end of every course week, every project phase, every book chapter — before moving to the next thing, do a 5-question cold self-check. If you pass, move on. If you fail, revise before advancing. This is your single biggest interview-depth insurance policy for the next 11 months.
+
+### 8. Office work is killing Friday — protect it structurally
+This week, **office work cost you both Wed reflection items AND all of Friday**. That's not bad luck, that's a pattern. Friday is the *last* weekday and your work backlog is highest then. Two structural fixes for Week 3 onward:
+- **Front-load critical ML on Mon/Wed.** If something is non-negotiable for the week (e.g. course completion, project blocker), schedule it Mon or Wed — never Fri.
+- **Friday becomes the lightest planned day.** Treat anything on Friday as "nice to have." If office crushes it, the weekend doesn't catch fire.
+- **Saturday is the safety net.** Use it knowingly: if Friday slips, Sat absorbs. But don't *plan* for Friday slips — just stop being surprised by them.
