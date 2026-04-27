@@ -63,12 +63,12 @@ Both drills are non-negotiable. They are the spaced-repetition backbone for the 
 | Order | What | Time |
 |-------|------|------|
 | 1 | DSA drill (Pattern 2 from `DSA-patterns.md`) | 15 min |
-| 2 | **Problem 15**: [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — medium, two pointers classic. Try 25 min before hint. | 25-35 min |
-| 3 | **Problem 16**: [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) — easy, **first Stack problem**. Pattern intro: "I have to match an open with the most recent unmatched open" → push on open, pop on close. | 20-25 min |
-| 4 | **Problem 17**: [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) — easy, strings/scanning. Quick win. | 15-20 min |
+| 2 | **Problem 16**: [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — medium, two pointers classic. Try 25 min before hint. | 25-35 min |
+| 3 | **Problem 17**: [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) — easy, **first Stack problem**. Pattern intro: "I have to match an open with the most recent unmatched open" → push on open, pop on close. | 20-25 min |
+| 4 | **Problem 18**: [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) — easy, strings/scanning. Quick win. | 15-20 min |
 | 5 | One-line pattern note for each. Group with prior week's notes by pattern. | 10 min |
 
-**Target: 3 problems. Running total: 17 (15 easy + 2 medium).**
+**Target: 3 problems. Running total: 18 (Mon's #15 Ransom Note daily-drill + Tue's 3 = 16 easy + 2 medium).**
 
 ---
 
@@ -95,11 +95,11 @@ Both drills are non-negotiable. They are the spaced-repetition backbone for the 
 |-------|------|------|
 | 1 | DSA drill (Pattern 4) | 15 min |
 | 2 | Re-read Tuesday's pattern notes. Recall Container With Most Water approach without code. | 5 min |
-| 3 | **Problem 18**: [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) — medium, **first Sliding Window problem**. The pattern: maintain a window `[l, r]`, expand `r`, shrink `l` when invariant breaks. This is THE classic sliding window. Try 30 min before hint. | 30-40 min |
-| 4 | **Problem 19**: [Min Stack](https://leetcode.com/problems/min-stack/) — easy, builds on Tuesday's Valid Parentheses. The trick is keeping `min` available in O(1). | 25-35 min |
+| 3 | **Problem 19**: [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) — medium, **first Sliding Window problem**. The pattern: maintain a window `[l, r]`, expand `r`, shrink `l` when invariant breaks. This is THE classic sliding window. Try 30 min before hint. | 30-40 min |
+| 4 | **Problem 20**: [Min Stack](https://leetcode.com/problems/min-stack/) — easy, builds on Tuesday's Valid Parentheses. The trick is keeping `min` available in O(1). | 25-35 min |
 | 5 | Pattern notes — "Sliding Window: variable-size windows over arrays/strings, expand-shrink pattern." | 10 min |
 
-**Target: 2 problems. Running total: 19.**
+**Target: 2 problems. Running total: 20.**
 
 ---
 
@@ -217,7 +217,7 @@ Per 1-year plan: Post 1 = "What 4 iterations of linear regression taught me abou
 | Tree depth re-check | 5/5 cold | Self-check Wed | ⏳ Wed |
 | 3B1B Calculus | Ep 7-8 done | Notes | ⏳ Wed |
 | 3B1B Linear Algebra | Ep 9-10 done | Notes | ⏳ Wed/Fri |
-| DSA | 19 problems total (5 new this week) | Pattern notes | ⏳ Tue/Thu/Sun |
+| DSA | 20 problems total (6 new this week incl. Mon daily drill) | Pattern notes | ⏳ Mon/Tue/Thu/Sun |
 | Daily drills | 7/7 DSA, 4/4 ML | Logged daily | ⏳ Daily |
 | Spaced review | First session done | Project 1 retrospective bullets | ⏳ Sun |
 | Blog setup | Hashnode + Post 1 skeleton | Hashnode draft URL | ⏳ Sun |
@@ -233,7 +233,7 @@ Per 1-year plan: Post 1 = "What 4 iterations of linear regression taught me abou
 | 3B1B Linear Algebra | 7 hrs | ~5.5 hrs | ~1.5 hrs |
 | Project 2 (EDA + baseline + scratch + tree kickoff) | 35-40 hrs | ~13 hrs | ~22-27 hrs |
 | LR from scratch | 3-4 hrs | DONE | — |
-| DSA (22-27 remaining) | 22-28 hrs | 19/22-27 problems done | ~3-8 problems |
+| DSA (22-27 remaining) | 22-28 hrs | 20/22-27 problems done | ~2-7 problems |
 | Blog post 1 (setup + skeleton) | 5-6 hrs | ~2 hrs | ~3-4 hrs |
 
 **On track.** Weeks 4-7 of Phase 1 = Project 2 deepening (XGBoost, hyperparameter tuning, SHAP, W&B, FastAPI) + DSA continuation + blog post 1 publish + 3B1B finish.

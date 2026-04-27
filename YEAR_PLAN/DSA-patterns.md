@@ -131,4 +131,4 @@ _Add one row per drill session. After a month, scan for patterns that repeatedly
 
 | Date | Pattern | Problem (LC #) | Time | Verdict |
 |------|---------|----------------|------|---------|
-| | | | | |
+| 2026-04-27 | Arrays & Hashing | #383 Ransom Note | ~15 min | clean |
