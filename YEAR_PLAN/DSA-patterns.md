@@ -28,6 +28,8 @@ Two indices start at opposite ends and move toward each other based on a decisio
 | 9 | Valid Palindrome | [#125](https://leetcode.com/problems/valid-palindrome/) | `Week-02/labs/DSA/Valid_Palindrome.ipynb` | Pointers at both ends; skip non-alphanumeric; compare lowercased chars. |
 | 12 | Squares of a Sorted Array | [#977](https://leetcode.com/problems/squares-of-a-sorted-array/) | `Week-02/labs/DSA/12-squares-of-a-sorted-array.ipynb` | Largest square is at one of the ends; fill result **from the back**. |
 | 13 | Two Sum II (sorted) | [#167](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | `Week-02/labs/DSA/13-two-sum-ii-input-array-is-sorted.ipynb` | Sum too big → shrink right; too small → grow left. O(1) space vs Two Sum's hashmap. |
+| 16 | Container With Most Water | [#11](https://leetcode.com/problems/container-with-most-water/) | `Week-03/labs/DSA/16-container-with-most-water.ipynb` | Area = min(h_l, h_r) × (r − l). Always move the shorter wall — moving the taller can only shrink area. |
+| D-1 | Reverse Vowels of a String *(drill)* | [#345](https://leetcode.com/problems/reverse-vowels-of-a-string/) | `Week-03/labs/DSA/drill-345-reverse-vowels.ipynb` | Two pointers; skip non-vowels on each side, swap when both are vowels. |
 
 ---
 
@@ -73,10 +75,31 @@ Precompute products/sums from one side, then combine with a scan from the other 
 
 ---
 
+## Pattern: Stack — LIFO match for nested structures
+
+Use when "I have to match this thing with the **most recent unmatched** thing." Push on open/start, pop on close/end and verify match. Two failure modes to keep separate: pop-from-empty (no opener) and wrong-type-pop (opener mismatched closer). Non-empty stack at end = unclosed openers.
+
+| # | Problem | LC | File | One-line pattern note |
+|---|---------|----|----|------------------------|
+| 17 | Valid Parentheses | [#20](https://leetcode.com/problems/valid-parentheses/) | `Week-03/labs/DSA/17-valid-parentheses.ipynb` | Map closer→opener; push openers; on closer, fail if stack empty or pop ≠ expected. End: stack must be empty. |
+
+---
+
+## Pattern: Strings — Vertical Scan
+
+Walk character columns across a list of strings. Stop at the first column where any string disagrees or runs out. O(S) total chars in worst case, O(1) extra space.
+
+| # | Problem | LC | File | One-line pattern note |
+|---|---------|----|----|------------------------|
+| 18 | Longest Common Prefix | [#14](https://leetcode.com/problems/longest-common-prefix/) | `Week-03/labs/DSA/18-longest-common-prefix.ipynb` | For column j of strs[0], check every other string at j; bail on mismatch or string-end and return strs[0][:j]. |
+
+---
+
 ## Pending / Next
 
-- **14. Reverse String** [#344](https://leetcode.com/problems/reverse-string/) — Two Pointers converging, planned for Sunday.
-- **15+**: 3Sum, Container With Most Water — first real medium-level Two Pointers. After Week 2 confidence check.
+- **Thu (Week 3)**: #3 Longest Substring Without Repeating Characters (first Sliding Window medium), #155 Min Stack (Stack continuation).
+- **Sun spaced review**: pick the shakiest pattern from this week — likely Stack (only one problem solved) or Vertical Scan (single example). Re-solve cold, no peeking.
+- **Future mediums in queue**: #15 3Sum (converging pointers nested in fix-one), #42 Trapping Rain Water (converging-pointer template, monotonic invariant).
 
 ---
 
@@ -132,3 +155,4 @@ _Add one row per drill session. After a month, scan for patterns that repeatedly
 | Date | Pattern | Problem (LC #) | Time | Verdict |
 |------|---------|----------------|------|---------|
 | 2026-04-27 | Arrays & Hashing | #383 Ransom Note | ~15 min | clean |
+| 2026-04-28 | Two Pointers — Converging | #345 Reverse Vowels | ≤15 min | clean |
