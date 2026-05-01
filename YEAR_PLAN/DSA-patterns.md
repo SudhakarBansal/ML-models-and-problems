@@ -156,3 +156,6 @@ _Add one row per drill session. After a month, scan for patterns that repeatedly
 |------|---------|----------------|------|---------|
 | 2026-04-27 | Arrays & Hashing | #383 Ransom Note | ~15 min | clean |
 | 2026-04-28 | Two Pointers — Converging | #345 Reverse Vowels | ≤15 min | clean |
+| 2026-04-29 | Two Pointers — Slow/Fast | #905 Sort Array by Parity | ~15 min | clean |
+| 2026-04-30 | Sliding Window (fixed-size) | #643 Max Avg Subarray I | ~15 min | clean |
+| 2026-05-01 | Prefix / Running Sum | #1480 Running Sum of 1d Array | ~15 min | clean |
