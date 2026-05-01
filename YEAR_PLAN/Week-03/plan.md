@@ -73,18 +73,21 @@ Both drills are non-negotiable. They are the spaced-repetition backbone for the 
 ---
 
 ## Wednesday — ML Theory (1.5-2 hrs)
-**Topic: 3B1B catch-up + Project 2 prep — depth recheck before tree work**
+**Topic: Math source swap (mechanics first) + Project 2 prep — depth recheck before tree work**
+
+> **Math source change (Wed Apr 29 → Fri May 1)**: v5 swapped 3B1B → Khan + Coursera audit. v5.1 (same Wed) found Coursera audit unavailable in India → switched to MIT OCW + Khan. **v5.2 (Fri May 1) paid for Imperial Coursera specialization** — single integrated course beats weaving free sources, paid tier unlocks assignments. Module 1 of LA Course 1 done May 1. **Source LOCKED through end of Phase 1 (May 31). No more revisions.** See `1-year-ml-plan.md` v5.2 changelog.
 
 | Order | What | Time |
 |-------|------|------|
 | 1 | ML drill (Format 2 from `ML-drills.md`) | 15 min |
-| 2 | DSA drill (Pattern 3) | 15 min |
-| 3 | 3B1B Calculus **Ep 7** (carry-over) — limits, formal definition of derivative. | 15-20 min |
-| 4 | 3B1B Calculus **Ep 8** (carry-over) — integration intro. | 15 min |
-| 5 | 3B1B Linear Algebra **Ep 9** (carry-over) — change of basis. | 15 min |
-| 6 | **Tree depth re-check** (cold, no peeking): close all tabs, redo the 5 questions from `notes/00-decision-trees-and-ensembles.md`. Compare. **If you pass all 5 → Saturday's tree work is green-lit.** If you fail Q5 (gradient boosting) again → re-watch StatQuest Gradient Boost Part 1 Friday before Sat. | 30 min |
+| 2 | DSA drill (Pattern 3) — `drill-905-sort-array-by-parity.ipynb` | 15 min |
+| 3 | **Tree depth re-check** (cold, no peeking): close all tabs, fill `Week-03/notes/wed-depth-recheck.md` with the 5 questions from `Telco-churn-classification/notes/00-decision-trees-and-ensembles.md`. Self-grade. **If you pass all 5 → Saturday's tree work is green-lit.** If you fail Q5 (gradient boosting) again → re-watch StatQuest Gradient Boost Part 1 Friday before Sat. | 30 min |
+
+*Math originally scheduled here but the day closed before it happened. The slippage triggered the v5.2 source revision on Fri May 1 (paid for Imperial Coursera). **Imperial LA Course 1 Module 1 done Fri May 1.** Modules 2-5 spread across Wks 4-5. Don't backfill into a closed day — accept the slip and move on.*
 
 **Hard rule**: do not fit trees on Telco (Sunday) without passing the 5-question recheck. Lesson #1 from Week 2: finished ≠ understood.
+
+**Hard rule (new this week)**: math drills must be **active solving**, not passive watching. If you finish a Khan video without solving anything, that 25 min didn't count.
 
 ---
 
@@ -112,7 +115,7 @@ Friday has been crushed by office work two weeks running. Per Week 2 lesson #8 �
 |-------|------|------|
 | 1 | ML drill (Format 3) | 15 min |
 | 2 | DSA drill (Pattern 5) | 15 min |
-| 3 | 3B1B LA **Ep 10**: Cross products in light of linear transformations | 15 min |
+| 3 | ✅ **Imperial LA Course 1, Module 1** done (May 1) — orientation/intro module. Next: Module 2 (Vectors) on Wk 4 Monday. **Solve assignments**, don't just watch lectures. | 15 min → done |
 | 4 | If Wed depth re-check failed Q5 → re-watch [StatQuest Gradient Boost Part 1](https://www.youtube.com/watch?v=3CC4N4z3GJc) (16 min). Otherwise: re-read `00-decision-trees-and-ensembles.md` (10 min refresh). | 15 min |
 | 5 | Sat prep mental rehearsal: "Tomorrow I implement logistic regression in numpy. The pieces I need: sigmoid, cost (log loss), gradient, GD loop. The sklearn predictions are my ground truth — they should match within rounding." | 5 min |
 
@@ -214,9 +217,10 @@ Per 1-year plan: Post 1 = "What 4 iterations of linear regression taught me abou
 | Project 2 — LR from scratch | Cost curve decreasing, predictions match sklearn within 1e-3 | `04-logistic-regression-from-scratch.ipynb` | ⏳ Sat |
 | Project 2 — tree models kickoff | DT + RF fit, F1/ROC-AUC compared to LR | `05-tree-models.ipynb` | ⏳ Sun |
 | Project 2 — notes | Comparison table + reflection | `notes/01-eda-and-baseline.md` (or split) | ⏳ Mon + Sat |
-| Tree depth re-check | 5/5 cold | Self-check Wed | ⏳ Wed |
-| 3B1B Calculus | Ep 7-8 done | Notes | ⏳ Wed |
-| 3B1B Linear Algebra | Ep 9-10 done | Notes | ⏳ Wed/Fri |
+| Tree depth re-check | 5/5 cold | Self-check Wed (`Week-03/notes/wed-depth-recheck.md`) | ⏳ Wed |
+| Math — Imperial LA Course 1 (start) | Module 1 done; Module 2 next | Coursera progress page | ✅ Module 1 done Fri May 1 |
+| Math — Imperial LA Course 1 (continue) | Modules 2-5 + assignments | Coursera progress page | 🗓️ Wks 4-5 |
+| Math — Imperial MV Calc Course 2 | Start after LA Course 1 done | Coursera progress page | 🗓️ Wks 5-6 |
 | DSA | 20 problems total (6 new this week incl. Mon daily drill) | Pattern notes | ⏳ Mon/Tue/Thu/Sun |
 | Daily drills | 7/7 DSA, 4/4 ML | Logged daily | ⏳ Daily |
 | Spaced review | First session done | Project 1 retrospective bullets | ⏳ Sun |
@@ -229,10 +233,11 @@ Per 1-year plan: Post 1 = "What 4 iterations of linear regression taught me abou
 | Phase 1 deliverable | Total estimate | Done after Wk 3 (target) | Remaining |
 |---|---|---|---|
 | Course 2 (W2-W4 watched + W4 depth nailed) | 8-12 hrs | DONE | — |
-| 3B1B Calculus | 6 hrs | ~5 hrs | ~1 hr |
-| 3B1B Linear Algebra | 7 hrs | ~5.5 hrs | ~1.5 hrs |
+| Math — Imperial LA Course 1 (5 modules + assignments) | ~18 hrs | ~2 hrs (Module 1 done Fri May 1) | ~16 hrs (Wks 4-5) |
+| Math — Imperial MV Calc Course 2 | ~18 hrs | 0 hrs | ~8 hrs in Phase 1 (rest spills to Phase 2) |
+| Math — 3B1B selective enrichment (Ep 1-7 LA, Ep 1-5 Calc) | ~5 hrs | ~3 hrs already done | ~2 hrs (Phase 2 onward) |
 | Project 2 (EDA + baseline + scratch + tree kickoff) | 35-40 hrs | ~13 hrs | ~22-27 hrs |
-| LR from scratch | 3-4 hrs | DONE | — |
+| LR from scratch | 3-4 hrs | (Sat target) | 3-4 hrs |
 | DSA (22-27 remaining) | 22-28 hrs | 20/22-27 problems done | ~2-7 problems |
 | Blog post 1 (setup + skeleton) | 5-6 hrs | ~2 hrs | ~3-4 hrs |
 
@@ -274,7 +279,7 @@ These are direct carry-overs. Don't re-read Week 2's lessons section every Monda
 1. **Finished ≠ understood.** Wed depth recheck is the hard gate before Sat tree work.
 2. **Reflection is not optional.** If Sat runs over, drop Block 2's edge-case exploration before dropping Block 3's reflection.
 3. **Don't front-load ML.** If Mon's Block B starts going 3+ hrs on one item, stop and move on.
-4. **Protect math.** 3B1B Calc Ep 7-8 are scheduled Wed. They've slipped twice — do not slip a third time. Cut ML theory before cutting math.
+4. **Protect math.** Math is now **Imperial Coursera (paid)** — locked through May 31, no more source revisions. 3B1B is enrichment only. Cut ML theory before cutting math. **Active solving (assignments), not passive watching (lectures).**
 5. **Friday is light.** Office burned Friday two weeks running. Plan for it.
 6. **Pre-fit mental check** for every model on Telco (DT, RF Sun; XGBoost next week): "This model works by [mechanism]. It should beat the previous because [reason]. If it doesn't, my explanation would be [reason]." Before `.fit()` is called.
 7. **5-question depth check** before marking ANY chapter/course/topic done. Including Sat's LR-from-scratch — finish Sat by writing 5 questions for yourself and answering them cold.
@@ -284,4 +289,7 @@ These are direct carry-overs. Don't re-read Week 2's lessons section every Monda
 
 *Plan created: April 26, 2026 (Sunday evening, Week 2 close)*
 *Carries forward: Block B baseline, blog setup, spaced review kickoff, 3B1B catch-up, DSA pattern scan*
+*Plan revised: April 29, 2026 (Wed Week 3) — math source swap. 3B1B replaced with Khan Academy + Imperial Coursera audit (mechanics first). 3B1B retained as selective enrichment only. See `1-year-ml-plan.md` v5 changelog for the full reasoning.*
+*Plan revised again: April 29, 2026 (later same day, v5.1) — Coursera audit unavailable in India region (verified via Playwright). Switched primary math to MIT 18.06 (Strang) on MIT OCW + Khan Academy. Coursera demoted to backup.*
+*Plan revised v5.2: May 1, 2026 (Fri Week 3) — paid for Imperial Coursera Math for ML specialization. Module 1 of LA Course 1 done same day. Math source LOCKED through May 31; MIT OCW + Khan demoted to backup-if-Imperial-breaks. See `1-year-ml-plan.md` v5.2 changelog.*
 *Next review: End of Week 3 (Sunday May 3, 2026)*

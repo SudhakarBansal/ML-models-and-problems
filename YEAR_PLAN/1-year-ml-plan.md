@@ -99,16 +99,46 @@ Weeks 5-7 (May):
   - **Time remaining**: ~8-12 hrs
 
 ### Math (alongside ML, not separate)
-- [ ] **3Blue1Brown "Essence of Calculus"** (YouTube) — DO THIS FIRST
-  - Derivatives, chain rule, gradients
-  - Watch NOW alongside your backprop study — the chain rule IS backpropagation
-  - **Time**: ~6 hrs
-- [ ] **3Blue1Brown "Essence of Linear Algebra"** (YouTube, 14 episodes remaining)
-  - ~~Ep 1: Vectors~~ DONE
-  - ~~Ep 2: Linear combinations, span, basis vectors~~ DONE
-  - Ep 3-16: Linear transformations, matrix multiplication, determinants, eigenvalues
-  - Continue 2-3 per week through May
-  - **Time remaining**: ~7 hrs
+
+> **Why this section was rewritten (v5.2, May 1 2026)**: After v5 (Khan + MIT OCW) and v5.1 (verified Coursera audit unavailable in India), I paid for Imperial College's "Mathematics for Machine Learning" specialization on Coursera. Reasoning: friction-free single integrated course beats weaving Khan + MIT myself, especially with the active-solving discipline I needed. Module 1 of Course 1 (LA) done May 1. **Source is now locked through end of Phase 1 (May 31). No more revisions.**
+
+#### Primary path — Imperial "Mathematics for Machine Learning" (Coursera, paid)
+
+- [ ] **Course 1: Linear Algebra** (~18 hrs, 5 modules)
+  - URL: https://www.coursera.org/learn/linear-algebra-machine-learning
+  - Module 1: Intro ✅ (May 1, 2026)
+  - Module 2: Vectors are objects that move around space
+  - Module 3: Matrices in Linear Algebra: Objects that operate on Vectors
+  - Module 4: Matrices make linear mappings
+  - Module 5: Eigenvalues and Eigenvectors
+  - **Active solving discipline**: every quiz + assignment must be attempted, not skipped. The paid tier gives assignment access — use it.
+- [ ] **Course 2: Multivariate Calculus** (~18 hrs, 6 modules)
+  - URL: https://www.coursera.org/learn/multivariate-calculus-machine-learning
+  - Partial derivatives, gradient, chain rule, gradient descent (directly ML-relevant)
+  - Targeted: Wks 4-7 of Phase 1 + spillover to Phase 2 if needed
+- [ ] **Course 3: PCA** (~18 hrs, 4 modules)
+  - URL: https://www.coursera.org/learn/pca-machine-learning
+  - Phase 2 (July onward) — naturally aligns with Project 3 (unsupervised learning, customer segmentation)
+
+**Validation gate (after Course 1 Module 4)**: can I do a basic vector projection on paper, from memory, with no notes? If yes — course is working. If no — that's not a course problem, it's an active-solving problem. Don't switch sources; fix the discipline.
+
+#### Enrichment — 3B1B (after mechanics are solid, NOT before)
+
+- [ ] **3Blue1Brown — Essence of Linear Algebra** (selective, ~3 hrs)
+  - Watch only Ep 1-7 (vectors → rank/null space) and Ep 11-12 (eigenvectors). Skip the rest.
+  - Mindset: "Now show me the *why* for things I already know how to compute."
+- [ ] **3Blue1Brown — Essence of Calculus** (selective, ~2 hrs)
+  - Watch only Ep 1-5 (essence, derivative paradox, derivative formulas, chain rule, e^x and ln).
+  - Skip Ep 6-12.
+
+#### Backup (only if Imperial breaks for some reason — DO NOT switch lightly)
+
+- MIT 18.06 (Strang) on MIT OCW — free, rigorous, gold standard
+- Khan Academy LA + Multivar Calc — free, mechanical drilling
+
+**Total math time: ~54 hrs (Imperial 3 courses) + 5 hrs (3B1B enrichment) = ~59 hrs spread across Phases 1-2.** Up from earlier estimates because Imperial assignments are non-trivial. Acceptable trade — paid commitment + structure beats free + self-directed weaving for me.
+
+**Phase 1 math goal**: Course 1 (LA) complete by May 31. Course 2 (MV Calc) starts in Wk 5-6 if LA is on pace; otherwise carries to Phase 2.
 
 ### Project
 - [ ] **Project 2: Binary Classification** (Logistic Regression → Decision Trees → XGBoost)
@@ -143,25 +173,25 @@ Weeks 5-7 (May):
   - **Time**: ~5-6 hrs
 - [ ] Share on LinkedIn
 
-### Phase 1 Time Budget (revised with progress)
+### Phase 1 Time Budget (revised v5.2 — Imperial Coursera paid)
 | Task | Remaining hours |
 |------|----------------|
 | Course 2 (remaining ~50%) | 8-12 |
 | House price loose ends | ~~5~~ → 0 (DONE) |
-| 3B1B Calculus | 6 |
-| 3B1B Linear Algebra (14 episodes left) | 7 |
+| Imperial LA Course 1 (Modules 2-5; Module 1 done) | ~15 |
+| Imperial MV Calc Course 2 (start in Phase 1, finish in Phase 2) | ~8 in Phase 1 (rest spills) |
+| 3B1B (selective enrichment, after mechanics) | 5 |
 | Project 2 (full incl SHAP/W&B/FastAPI) | 35-40 |
 | DSA (22-27 problems remaining) | 22-28 |
 | Blog post 1 + setup | 5-6 |
-| **Total remaining** | **83-99** |
+| **Total remaining** | **98-114** |
 | **Available (~6.5 weeks × ~14.5)** | **~94** |
 
-**Fits well.** Low end has 11 hrs buffer. High end is only 5 hrs over.
+**Tight, accept the slip.** Imperial LA must clear by May 31. MV Calc is allowed to spill into Phase 2 — not strictly needed before Project 2 wraps. Course 1 modules 2-5 in Phase 1 is the floor; MV Calc + PCA is Phase 2 territory.
 
 ### Month 1 checkpoint (end of April):
 - Course 2: Complete or nearly complete (only Week 4 Decision Trees may remain)
-- 3Blue1Brown Calculus: 60%+ done (complete by mid-May)
-- 3Blue1Brown Linear Algebra: 6-8/16 episodes done
+- Math source decision: locked on Imperial Coursera (paid) — Module 1 of LA done May 1
 - Normal Equation: DONE
 - Ridge reasoning: DONE
 - .copy() bug: DONE
@@ -171,7 +201,8 @@ Weeks 5-7 (May):
 ### Month 2 checkpoint (end of May):
 - Course 2: Complete
 - Classification project: In progress or done (core models + SHAP + W&B + FastAPI)
-- 3Blue1Brown: Both series done
+- Imperial LA Course 1: Complete (all 5 modules + assignments)
+- Imperial MV Calc Course 2: Started (1-2 modules done; rest spills to Phase 2)
 - DSA: 25-30 easy problems, started first mediums
 - Blog post 1: Published
 
@@ -588,11 +619,26 @@ No separate "learn pandas" course needed. The projects ARE the course.
 4. [Fast.ai Practical Deep Learning](https://course.fast.ai/) OR Andrew Ng DL Specialization Course 1
 5. David Silver RL Lectures (YouTube, first 4-5 lectures)
 
-### Math (watch alongside ML courses)
-1. [3Blue1Brown: Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) — 16 episodes, best visual intuition
-2. [3Blue1Brown: Essence of Calculus](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr)
-3. [StatQuest (Josh Starmer)](https://www.youtube.com/c/joshstarmer) — Probability, statistics, ML explained simply
-4. [DeepLearning.AI Math for ML Specialization](https://www.coursera.org/specializations/mathematics-for-machine-learning-and-data-science) — structured course if you want more
+### Math (Imperial Coursera primary, paid)
+
+**Primary — locked May 1, 2026 (no source revisions before May 31):**
+1. [Imperial College — "Mathematics for Machine Learning" specialization (Coursera, paid)](https://www.coursera.org/specializations/mathematics-for-machine-learning) — three courses (LA, Multivar Calc, PCA). ML-aimed, problem sets, Python code, structured. Module 1 of LA done May 1.
+   - [Course 1: Linear Algebra](https://www.coursera.org/learn/linear-algebra-machine-learning) — primary Phase 1 deliverable
+   - [Course 2: Multivariate Calculus](https://www.coursera.org/learn/multivariate-calculus-machine-learning) — Phase 1 spillover → Phase 2
+   - [Course 3: PCA](https://www.coursera.org/learn/pca-machine-learning) — Phase 2 (aligns with Project 3 unsupervised)
+
+**Enrichment (only after Imperial mechanics are solid):**
+2. [3Blue1Brown: Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) — selective: Ep 1-7 + Ep 11-12 only.
+3. [3Blue1Brown: Essence of Calculus](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr) — selective: Ep 1-5 only.
+
+**Statistics (Phase 2):**
+4. [StatQuest (Josh Starmer)](https://www.youtube.com/c/joshstarmer) — Probability, statistics, ML explained simply.
+
+**Backup — only if Imperial breaks (DO NOT switch lightly):**
+5. [MIT 18.06 — Linear Algebra (Gilbert Strang)](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) — MIT OCW, free, rigorous, gold standard.
+6. [MIT 18.02 — Multivariable Calculus](https://ocw.mit.edu/courses/18-02-multivariable-calculus-fall-2007/) — MIT OCW, free.
+7. [Khan Academy — Linear Algebra](https://www.khanacademy.org/math/linear-algebra) — drill companion, free.
+8. [Khan Academy — Multivariable Calculus](https://www.khanacademy.org/math/multivariable-calculus) — drill companion, free.
 
 ### Books (reference, not cover-to-cover)
 1. **Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow** (Aurélien Géron) — THE practical ML book. Read selected chapters in Phase 2.
@@ -663,4 +709,7 @@ No separate "learn pandas" course needed. The projects ARE the course.
 *Changes in v2: +1 month timeline, +SHAP/interpretability, +experiment tracking (W&B), +FastAPI serving, +ML system design, +SQL moved earlier, +blog post 1 moved earlier, Phase 3 restructured (RL project → November), +networking strategy, +resume quantification, +Géron Ch 4, +target companies research*
 *Changes in v3: Phase 1 progress update, Calculus-first reorder, CV + hyperparameter tuning in Project 2, Resources header, total hours to 680-720, RL theory paired with RL project in Nov, Month 1 math softened, exam week DSA fixed, blog/checkpoint inconsistencies fixed*
 *Changes in v4: November deloaded (blog 3 + resume → December as MCA study breaks), code-from-scratch spread across Phases 1-3 (logistic reg, k-means, simple NN), domain-driven feature engineering explicit in Project 2, self-mock added in Nov, Python interview questions + "no ML experience" answer added to Jan prep, Month 1 summary table aligned*
+*Plan v5 revised: April 29, 2026 (Wed Week 3) — math source swap. 3B1B was tried as primary math source through Weeks 1-3; geometric/visual delivery wasn't sticking without procedural mechanics underneath. Replaced with Khan Academy (mechanics) + Imperial Coursera "Math for ML" audit (ML-aimed). 3B1B retained as selective enrichment only (Ep 1-7 LA, Ep 1-5 Calc) for AFTER mechanics are solid. Total math hours expanded ~10 hrs; mitigated by spilling Imperial Course 2 into Phase 2.*
+*Plan v5.1 revised: April 29, 2026 (later same day) — Coursera audit appears unavailable in India region (verified via Playwright on the Imperial LA course page; FAQ says "may offer 'Full Course, No Certificate'" — conditional, and the related courses all show only "Free Trial"). Switched primary math sources to MIT 18.06 (Strang) + MIT 18.02 on MIT OpenCourseWare — truly free, no signup, no fishing for hidden audit links. Imperial Coursera moved to "backup if audit works in your region."*
+*Plan v5.2 revised: May 1, 2026 (Fri Week 3) — paid for Imperial Coursera specialization. Reasoning: friction-free single integrated course beats weaving Khan + MIT myself; paid tier unlocks assignments which are the active-solving discipline I needed. Module 1 of Course 1 (LA) done May 1. **Math source LOCKED through end of Phase 1 (May 31). No more revisions** — three swaps in one week was the limit. MIT OCW + Khan demoted to "backup if Imperial breaks." Total math hours up ~5 hrs vs v5.1; covered by tighter execution.*
 *Next review: End of April 2026 (Month 1 checkpoint)*
