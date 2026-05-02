@@ -91,6 +91,7 @@ _Log every drill. After 4 weeks, scan for any topic/format that repeatedly shows
 |------|-------|--------|---------|------------|
 | 2026-04-27 | Classical ML | Conceptual | Ridge / λ‖w‖² | shaky |
 | 2026-04-29 | Trees & Ensembles | Interview | AdaBoost vs Gradient Boost — "what does each new tree fit?" | shaky |
+| 2026-05-01 | Neural Networks | Conceptual | Non-linear activations / 5-layer stack | failed |
 
 ---
 
