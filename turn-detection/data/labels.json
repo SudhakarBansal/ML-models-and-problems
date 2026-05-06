@@ -1,0 +1,158 @@
+{
+  "_meta": {
+    "purpose": "Ground truth labels for turn detection clips. Update all numeric fields after recording each clip — current values are estimates based on the suggested text length.",
+    "fields": {
+      "text": "exact words spoken in the recording",
+      "duration_s": "total clip length in seconds",
+      "user_started_at_s": "timestamp where the first word begins — detected via silence analysis, 0.0 if speech starts immediately",
+      "overall_class": "finished | unfinished | wait — the final disposition of the whole utterance",
+      "user_finished_at_s": "timestamp where the last word ends. null if overall_class is unfinished and recording was cut",
+      "pauses": "array of mid-sentence silence intervals; each has start_s, end_s, correct_label",
+      "notes": "free text — what this clip is testing"
+    },
+    "labeling_tip": "open each clip in Audacity or any audio app, use the timeline to read seconds, round to nearest 0.1s"
+  },
+
+  "clip-01.wav": {
+    "text": "I want to book a flight to Bangalore for next Tuesday morning.",
+    "duration_s": 7.68,
+    "user_started_at_s": 2.38,
+    "overall_class": "finished",
+    "user_finished_at_s": 5.8,
+    "pauses": [],
+    "notes": "clean delivery, no mid-sentence pauses — sanity check that both approaches predict 'finished' correctly here"
+  },
+
+  "clip-02.wav": {
+    "text": "I want to book a flight to ...um.. Bangalore for next Tuesday.",
+    "duration_s": 9.43,
+    "user_started_at_s": 1.4,
+    "overall_class": "finished",
+    "user_finished_at_s": 5.9,
+    "pauses": [
+      { "start_s": 3.4, "end_s": 4.1, "correct_label": "unfinished" }
+    ],
+    "notes": "single mid-sentence pause after 'flight to' (~1.3s long) — primary baseline-vs-smart test case"
+  },
+
+  "clip-03.wav": {
+    "text": "Hmm I think ... I. aaa. want a window seat please.",
+    "duration_s": 7.04,
+    "user_started_at_s": 0.35,
+    "overall_class": "finished",
+    "user_finished_at_s": 4.9,
+    "pauses": [
+      { "start_s": 2.7, "end_s": 3.2, "correct_label": "unfinished" }
+    ],
+    "notes": "thinking pause — tests whether the smart system handles disfluencies (Hmm, I think) and the pause that follows"
+  },
+
+  "clip-04.wav": {
+    "text": "Yes.",
+    "duration_s": 3.63,
+    "user_started_at_s": 0.8,
+    "overall_class": "finished",
+    "user_finished_at_s": 1.8,
+    "pauses": [],
+    "notes": "single-word turn — tests that the system doesn't wait for more after a clearly complete one-word reply"
+  },
+
+  "clip-05.wav": {
+    "text": "No, that's not right.",
+    "duration_s": 3.84,
+    "user_started_at_s": 0.4,
+    "overall_class": "finished",
+    "user_finished_at_s": 2.2,
+    "pauses": [],
+    "notes": "short utterance, no pauses, falling intonation"
+  },
+
+  "clip-06.wav": {
+    "text": "What was the price for the morning flight you mentioned earlier?",
+    "duration_s": 6.53,
+    "user_started_at_s": 0.5,
+    "overall_class": "finished",
+    "user_finished_at_s": 4.3,
+    "pauses": [],
+    "notes": "question form, rising intonation at end — checks the LLM treats questions as 'finished'"
+  },
+
+  "clip-07.wav": {
+    "text": "Cancel my booking ... actually wait ... change it to evening instead.",
+    "duration_s": 10.33,
+    "user_started_at_s": 0.29,
+    "overall_class": "finished",
+    "user_finished_at_s": 5.9,
+    "pauses": [
+      { "start_s": 2.0, "end_s": 2.4, "correct_label": "unfinished" },
+      { "start_s": 3.3, "end_s": 3.6, "correct_label": "unfinished" }
+    ],
+    "notes": "two mid-sentence pauses, user reconsiders mid-utterance. Tricky: the word 'wait' appears mid-sentence but is NOT the wait-class — that's about the whole utterance's intent, not isolated words"
+  },
+
+  "clip-08.wav": {
+    "text": "OK.",
+    "duration_s": 3.73,
+    "user_started_at_s": 1.1,
+    "overall_class": "finished",
+    "user_finished_at_s": 1.7,
+    "pauses": [],
+    "notes": "very short single-word turn — stress test for any system that requires minimum speech duration"
+  },
+
+  "clip-09.wav": {
+    "text": "Bhai matlab I want to .un... book a flight to Mumbai.",
+    "duration_s": 6.68,
+    "user_started_at_s": 1.48,
+    "overall_class": "finished",
+    "user_finished_at_s": 5.85,
+    "pauses": [
+      { "start_s": 3.9, "end_s": 4.1, "correct_label": "unfinished" }
+    ],
+    "notes": "code-switched (Hindi+English) with a mid-sentence pause — tests ASR robustness to mixing AND pause handling together"
+  },
+
+  "clip-10.wav": {
+    "text": "Please bookmark this conversation.",
+    "duration_s": 8.09,
+    "user_started_at_s": 1.1,
+    "overall_class": "finished",
+    "user_finished_at_s": 3.3,
+    "pauses": [],
+    "notes": "proper noun risk — ASR may hear 'book mark' (two words) instead of 'bookmark' (one word). Affects whether the LLM sees the right transcript"
+  },
+
+  "clip-11.wav": {
+    "text": "So I was thinking about my travel plans for next month and I really want to visit ..un. maybe.. Bangalore or Hyderabad ... I haven't decided yet ... but I'd like to book something soon if possible.",
+    "duration_s": 17.98,
+    "user_started_at_s": 1.4,
+    "overall_class": "finished",
+    "user_finished_at_s": 15.1,
+    "pauses": [
+      { "start_s": 6.5, "end_s": 6.9, "correct_label": "unfinished" },
+      { "start_s": 9.2, "end_s": 9.4, "correct_label": "unfinished" },
+      { "start_s": 10.7, "end_s": 11.1, "correct_label": "unfinished" }
+    ],
+    "notes": "long monologue (15-20s) with 3 mid-sentence pauses — biggest test of the smart approach. Baseline will likely cut at the first pause. Adjust pause timestamps after recording"
+  },
+
+  "clip-12.wav": {
+    "text": "Sounds good thanks bye.",
+    "duration_s": 7.00,
+    "user_started_at_s": 1.2,
+    "overall_class": "finished",
+    "user_finished_at_s": 3.2,
+    "pauses": [],
+    "notes": "fast quick turn, no pauses, clear sentence-end intonation"
+  },
+
+  "clip-13.wav": {
+    "text": "Wait, don't respond yet.",
+    "duration_s": 6.31,
+    "user_started_at_s": 1.3,
+    "overall_class": "wait",
+    "user_finished_at_s": 3.7,
+    "pauses": [],
+    "notes": "wait-class — grammatically complete but agent must NOT reply. This is the clip that justifies the 3-class taxonomy. A binary system would predict 'finished' here and incorrectly respond"
+  }
+}
