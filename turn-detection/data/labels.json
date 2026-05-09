@@ -72,7 +72,7 @@
     "duration_s": 6.53,
     "user_started_at_s": 0.5,
     "overall_class": "finished",
-    "user_finished_at_s": 4.3,
+    "user_finished_at_s": 3.8,
     "pauses": [],
     "notes": "question form, rising intonation at end — checks the LLM treats questions as 'finished'"
   },
