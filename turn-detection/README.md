@@ -23,13 +23,13 @@ The project requires the following dependencies:
 pip install onnxruntime librosa matplotlib openai-whisper openai
 ```
 
-Note: We use the ONNX version of Silero VAD via `onnxruntime` to avoid dependency/ABI mismatches with `torchaudio`, mimicking a lightweight production inference environment.
+Note: The project uses the ONNX version of Silero VAD via `onnxruntime` to avoid dependency/ABI mismatches with `torchaudio`, mimicking a lightweight production inference environment.
 
 ## Running the Evaluation
 
-To see the results yourself:
-1. Ensure your `OpenRouter` or `OpenAI` API key is set in `03-smart-vad-asr-llm.ipynb` and `04-comparison-cells.ipynb`.
-2. Run notebooks 01 through 03 to understand the pipeline.
-3. Run `04-comparison-cells.ipynb` to execute the full evaluation suite over all 14 test clips and view the final comparative metrics.
+To reproduce the evaluation:
+1. Set an `OpenRouter` or `OpenAI` API key in `03-smart-vad-asr-llm.ipynb` and `04-comparison-cells.ipynb`.
+2. Run notebooks 01 through 03 to follow the pipeline.
+3. Run `04-comparison-cells.ipynb` to execute the full evaluation suite over all 14 test clips and produce the final comparative metrics.
 
-Please read `WRITEUP.md` for a detailed breakdown of the methodology, metrics, and production implications.
+See `WRITEUP.md` for a detailed breakdown of the methodology, metrics, and production implications.

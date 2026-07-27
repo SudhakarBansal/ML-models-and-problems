@@ -6,7 +6,7 @@ This document summarizes the methodology, findings, and production implications 
 Real-time conversational agents must determine when a user has finished speaking to respond naturally. The industry standard baseline relies on **Acoustic Silence Thresholds** (e.g., if the user pauses for >500ms, they are done). However, human speech is non-linear; we often pause mid-sentence to think or search for words. A purely acoustic system interrupts the user repeatedly during these natural hesitations.
 
 ## The Solution: Semantic Endpointing
-We evaluated a "Smart" pipeline that layers semantic understanding over acoustic VAD:
+This project evaluates a "Smart" pipeline that layers semantic understanding over acoustic VAD:
 1. **Silero VAD** detects a silence gap (>500ms).
 2. **Whisper ASR** transcribes the speech up to that exact moment.
 3. An **LLM** classifies the partial transcript into a **3-class taxonomy**:
@@ -14,7 +14,7 @@ We evaluated a "Smart" pipeline that layers semantic understanding over acoustic
    * `unfinished`: The thought is incomplete (e.g., ends in a dangling preposition). The agent waits.
    * `wait`: The thought is grammatically complete, but the user explicitly intended to hold the floor (e.g., "Wait, let me think"). The agent waits.
 
-*Note: For this evaluation, we simulated streaming ASR by re-transcribing the growing audio buffer from scratch at each gap. In production, a streaming ASR engine would maintain state.*
+*Note: For this evaluation, streaming ASR is simulated by re-transcribing the growing audio buffer from scratch at each gap. In production, a streaming ASR engine would maintain state.*
 
 ## Results & Metrics
 Tested across 14 ground-truth conversational clips featuring mid-sentence pauses, the Smart approach heavily outperformed the baseline:
@@ -30,7 +30,7 @@ Tested across 14 ground-truth conversational clips featuring mid-sentence pauses
 ## Failure Analysis
 
 ### Why Binary Systems Fail: The `wait` Intent
-Our taxonomy utilizes 3 classes instead of a binary "done/not-done" because of clips like `clip-13.wav` ("Wait, don't respond yet."). This sentence is grammatically complete, and the pause following it looks acoustically identical to a turn-end. A binary system will interrupt the user here. By treating `wait` as a distinct class, the semantic system correctly respects the user's explicit floor-holding intent.
+The taxonomy uses 3 classes instead of a binary "done/not-done" because of clips like `clip-13.wav` ("Wait, don't respond yet."). This sentence is grammatically complete, and the pause following it looks acoustically identical to a turn-end. A binary system will interrupt the user here. By treating `wait` as a distinct class, the semantic system correctly respects the user's explicit floor-holding intent.
 
 ### Where the Smart Approach Succeeds
 In clips with long mid-sentence hesitations (e.g., `clip-14.wav`: "I am facing some issues with my... [pause] PNR number"), the LLM successfully recognizes the dangling modifier, returns `unfinished`, and prevents the false cut that the baseline would have triggered.

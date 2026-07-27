@@ -1,6 +1,6 @@
 # Turn detection — all approaches considered
 
-Captured May 3, 2026. The 10 approaches I'm aware of for end-of-utterance detection (endpointing) in a voice agent setting. Read this before Day 3 of the project. Use it as the source for the "Existing approaches" section in WRITEUP.md.
+The approaches I evaluated for end-of-utterance detection (endpointing) in a voice-agent setting, and the reasoning behind which two I built.
 
 For each approach: what it is, why I'm picking or skipping it, and when it would be the right call. The "why skipping" reasons are technical, not "takes too much time."
 
@@ -8,7 +8,7 @@ For each approach: what it is, why I'm picking or skipping it, and when it would
 
 **What it is.** Look at the audio's amplitude (loudness) directly. If amplitude < some threshold for X ms, mark as silence. No ML at all — just signal processing.
 
-**Why I'm skipping.** Too fragile. Background noise (fans, traffic, the person's own breathing) trips it. A soft speaker looks like silence even when they're talking. A loud noise looks like speech even when no one is. Doesn't handle real-world conditions. Also doesn't show any ML thinking — the mentor will just say "this is engineering, not ML."
+**Why I'm skipping.** Too fragile. Background noise (fans, traffic, the person's own breathing) trips it. A soft speaker looks like silence even when they're talking. A loud noise looks like speech even when no one is. Doesn't handle real-world conditions. It's also pure signal processing — there's no modelling to reason about, which is the part of the problem I actually wanted to dig into.
 
 **When it would be right.** Studio recording with one loud, clear speaker and zero background noise. Almost no real situation matches this.
 
@@ -16,7 +16,7 @@ For each approach: what it is, why I'm picking or skipping it, and when it would
 
 **What it is.** WebRTC VAD is a 2010-era voice activity detector from Google's WebRTC project (used in video calling). It uses hand-crafted features — energy in different frequency bands, spectral shape — and a small classifier to decide speech vs silence per frame. Then add a silence threshold rule on top: silence > X ms = "user done."
 
-**Why I'm skipping (vs Silero).** WebRTC VAD was designed for video conferencing — its job there is to compress silence in audio transmission, so it tolerates a lot of false positives ("this might be speech"). It struggles with soft speakers, accented English, and audio with music or background noise. Silero is a modern neural network trained on much more diverse data, including speech in noisy conditions and many accents. Silero is also better at handling Indian English specifically. Mentor would likely ask "why didn't you use a more modern model?" — defending WebRTC VAD here would be hard.
+**Why I'm skipping (vs Silero).** WebRTC VAD was designed for video conferencing — its job there is to compress silence in audio transmission, so it tolerates a lot of false positives ("this might be speech"). It struggles with soft speakers, accented English, and audio with music or background noise. Silero is a modern neural network trained on much more diverse data, including speech in noisy conditions and many accents. Silero is also better at handling Indian English specifically. In 2026, choosing WebRTC VAD over a stronger, freely available modern model would be hard to justify.
 
 **When it would be right.** Extremely low compute environments — a tiny embedded chip where you can't run even a small neural network. Also when latency requirements are sub-10ms. Not our case.
 
@@ -59,13 +59,13 @@ Reply with exactly one word: finished, unfinished, or wait.
 Transcript: {transcript}
 ```
 
-**Why I'm picking this.** It's what production voice agents (Vapi, LiveKit, OpenAI Realtime) actually do in 2026. Two-stage design is well-motivated: cheap acoustic filter first, expensive semantic check second. The 3-class output is validated by TEN (see approach #11) — a production system that ships exactly this taxonomy. Lets me compare against approach #3 to show a clear improvement. Hits the depth bar — real tradeoffs to discuss (latency from LLM, cost per check, ASR accuracy, 3-class vs binary).
+**Why I'm picking this.** It's what production voice agents (Vapi, LiveKit, OpenAI Realtime) actually do in 2026. Two-stage design is well-motivated: cheap acoustic filter first, expensive semantic check second. The 3-class output is validated by TEN (see approach #11) — a production system that ships exactly this taxonomy. Lets me compare against approach #3 to show a clear improvement. It also surfaces real tradeoffs worth analysing — latency from the LLM, cost per check, ASR accuracy, 3-class vs binary.
 
 **Production upgrade path (if this approach had to scale).** In this project the LLM call is a general-purpose model (GPT/Claude). That works for a prototype but has two problems at production scale: (1) latency — a general LLM adds 300-800ms per gap, which compounds across every silence in every conversation; (2) cost — an API call per gap is expensive at millions of conversations/day.
 
 The production path is to **replace the general LLM with a specialized small classifier** — essentially what TEN (approach #11) is. Fine-tune a smaller model (DistilBERT-level, ~100M params, or a quantized Qwen2.5-3B) specifically on the 3-class task using labeled conversation data. Inference drops to ~50ms. Cost drops to near-zero (runs on your own GPU). Accuracy improves because the model is trained on your exact distribution.
 
-The prototype (general LLM) validates that the semantic check adds real value over VAD-alone. Once validated, you replace the LLM with a specialist. That's the standard ML product path: LLM prototype → fine-tuned specialist. Worth stating explicitly in the writeup as the next engineering step.
+The prototype (general LLM) validates that the semantic check adds real value over VAD-alone. Once validated, you replace the LLM with a specialist. That's the standard ML product path: LLM prototype → fine-tuned specialist, and it's the natural next engineering step here.
 
 ## 6. Acoustic prosody features
 
@@ -81,7 +81,7 @@ The intuition: humans don't just stop talking — they often signal it with fall
 
 **What it is.** Closed-source or proprietary models specifically trained for endpointing. Vapi has one called "smart endpointing." LiveKit has a similar one. They typically combine acoustic + semantic + prosody internally and have been trained on millions of conversations.
 
-**Why I'm skipping.** They're closed-source. Even if I called their API, I couldn't explain WHY they decide one way or another internally — and the mentor wants reasoning depth, not "I called Vapi's endpoint." This approach hides the ML thinking the mentor is trying to evaluate. Also, most of these are paid APIs.
+**Why I'm skipping.** They're closed-source. Even if I called their API, I couldn't explain WHY they decide one way or another internally — and the whole point of this project is to understand and reason about the endpointing tradeoffs, not to call a black-box endpoint. Also, most of these are paid APIs.
 
 **When it would be right.** When building a real production voice agent at a company that pays for them and doesn't need to reason about the internals.
 
@@ -91,7 +91,7 @@ The intuition: humans don't just stop talking — they often signal it with fall
 
 **Why I'm skipping.** Same blocker as #6 — the prosody side needs labeled training data to be useful, and we don't have it. Also more complex pipeline, harder to write up clearly. Adding multimodal without strong signal that prosody specifically helps would feel like piling on.
 
-**When it would be right.** Production system at a voice AI company with both labeled data and engineering resources. Current state-of-the-art research direction. Worth mentioning in the writeup as a "next step" idea.
+**When it would be right.** Production system at a voice AI company with both labeled data and engineering resources. Current state-of-the-art research direction, and a natural "next step" beyond this project.
 
 ## 9. Adaptive threshold
 
@@ -99,7 +99,7 @@ The intuition: humans don't just stop talking — they often signal it with fall
 
 **Why I'm skipping (as primary approach).** This is a small enhancement on top of approaches #3 or #5, not a fundamentally different one. It changes ONE parameter dynamically. Doesn't solve the underlying problem (silence-only endpointing is still fundamentally wrong about mid-sentence pauses, for any threshold setting).
 
-**When it would be right.** As an enhancement layer on top of any other approach in production. Common in real systems. Worth mentioning in the writeup as "a small win you could stack on top."
+**When it would be right.** As an enhancement layer on top of any other approach in production. Common in real systems — a small win you could stack on top of the chosen approach.
 
 ## 10. End-to-end neural endpointing
 
@@ -107,7 +107,7 @@ The intuition: humans don't just stop talking — they often signal it with fall
 
 **Why I'm skipping.** Two reasons:
 - Needs a LOT of labeled training data. Probably thousands of hours of conversation audio with EoU annotations at every silence point. We don't have that.
-- Less interpretable. "The model said so" doesn't pass the depth bar. With a pipeline (VAD + ASR + LLM), I can explain each stage and reason about each one's failure modes. With an end-to-end model, debugging requires looking at attention weights or activations — much harder to reason about clearly.
+- Less interpretable. "The model said so" gives me nothing to reason about. With a pipeline (VAD + ASR + LLM), I can explain each stage and reason about each one's failure modes. With an end-to-end model, debugging requires looking at attention weights or activations — much harder to reason about clearly.
 
 **When it would be right.** At a voice AI company sitting on millions of hours of conversation logs. Some recent research papers do this. Not a 1-week solo project, and not the right call when reasoning depth is the deliverable.
 
@@ -119,10 +119,10 @@ GitHub: https://github.com/TEN-framework/ten-turn-detection
 
 **Why I'm skipping.** Three reasons:
 - **Compute.** Qwen2.5-7B needs ~14GB VRAM to run at full precision. Not feasible on a standard laptop without a GPU. You can quantize it down but this is now a 2-hour setup problem before any ML work begins.
-- **Black box.** Calling `model.predict(transcript)` gives me "finished" with no reasoning I can explain. The mentor's bar is solution-selection reasoning and tradeoff analysis. A fine-tuned model hides all of that — I can't explain *why* it fires or fails without inspecting attention weights, which is a separate research project.
+- **Black box.** Calling `model.predict(transcript)` gives me "finished" with no reasoning I can explain. What I wanted out of this project was solution-selection reasoning and tradeoff analysis — a fine-tuned model hides all of that. I can't explain *why* it fires or fails without inspecting attention weights, which is a separate research project.
 - **Wrong scope.** This is what approach #10 (end-to-end neural) looks like when a company actually builds it. It requires a curated training dataset, GPU infrastructure, and a fine-tuning pipeline. It's not a 1-week solo project, and it was never the right call here.
 
-**Why it's worth knowing.** It validates two things I already believe: (1) the `finished / unfinished / wait` 3-class taxonomy is the right output format for production systems, not binary done/not-done; (2) the field moved from rule-based silence thresholds toward semantic models. Both points belong in the writeup's "Existing approaches" section. TEN is the concrete production evidence.
+**Why it's worth knowing.** It validates two things I already believe: (1) the `finished / unfinished / wait` 3-class taxonomy is the right output format for production systems, not binary done/not-done; (2) the field moved from rule-based silence thresholds toward semantic models. TEN is the concrete production evidence for both.
 
 **When it would be right.** At a voice AI company (Sarvam-type) that has conversation logs to fine-tune on, a GPU cluster to train, and needs a single low-latency model call instead of a VAD+ASR+LLM pipeline. Latency advantage over a pipeline is real: one model call vs three sequential steps.
 
@@ -132,11 +132,11 @@ GitHub: https://github.com/TEN-framework/ten-turn-detection
 
 The key distinction from VAD-only: the STT provider's internal LM has access to the words being spoken, not just the audio energy. Deepgram and AssemblyAI in particular use a language model to predict end-of-utterance before trailing silence fully expires — which reduces perceived latency vs waiting for a 500-800ms silence gap.
 
-**Why I'm skipping.** It requires a live streaming STT WebSocket — you're piping real-time audio into a paid API. Our project is offline: we load audio files and run Whisper locally. Whisper has no streaming API and no `is_final` signal; it processes a complete audio clip and returns a transcript. There's no path to get STT endpointing from an offline setup without switching to a streaming provider and adding real-time plumbing (WebSocket client, audio chunking, async state machine). That's exactly the engineering work the mentor said to skip.
+**Why I'm skipping.** It requires a live streaming STT WebSocket — you're piping real-time audio into a paid API. Our project is offline: we load audio files and run Whisper locally. Whisper has no streaming API and no `is_final` signal; it processes a complete audio clip and returns a transcript. There's no path to get STT endpointing from an offline setup without switching to a streaming provider and adding real-time plumbing (WebSocket client, audio chunking, async state machine). That's exactly the real-time plumbing this offline project deliberately keeps out of scope.
 
 **Sarvam specifically.** Sarvam's streaming API does emit `speech_end` via WebSocket when `vad_signals=true`. However, their `speech_end` is VAD-driven (silence-based), not semantic — it has the same mid-sentence pause failure as approach #3. It's Tier 1 wired into a streaming API, not true STT endpointing. Adding the LLM check on top of Sarvam's stream would get you the same result as our smart approach, just in streaming form.
 
-**Why it's worth knowing.** LiveKit calls this "the best default for most production agents" — it's the free endpointing that comes bundled with any streaming STT subscription. In a real system, you'd use this as your primary signal and only add a model-based layer on top for latency-sensitive or high-accuracy scenarios. Mention it in the "if this were real-time" section of WRITEUP.md.
+**Why it's worth knowing.** LiveKit calls this "the best default for most production agents" — it's the free endpointing that comes bundled with any streaming STT subscription. In a real system, you'd use this as your primary signal and only add a model-based layer on top for latency-sensitive or high-accuracy scenarios — the natural default if this project were moved to a real-time setting.
 
 **When it would be right.** Any production voice agent that already uses a streaming STT provider (Deepgram, AssemblyAI). Zero extra cost, no extra model, ships in a day. Only limitation: you can't control or inspect how it decides, and accuracy varies by provider.
 
@@ -156,9 +156,3 @@ The key distinction from VAD-only: the STT provider's internal LM has access to 
 | 10 | End-to-end neural | Skip | Needs huge labeled data, less interpretable |
 | 11 | Fine-tuned LLM (TEN) | Skip | 7B model, black box, needs GPU + training data |
 | 12 | STT endpointing (provider) | Skip | Needs streaming STT API; offline project; Sarvam's is VAD-based anyway |
-
-## What "depth" means here
-
-When the mentor reads my writeup, the "Existing approaches" section should make him think: "He knows the landscape. He didn't just pick the first approach he found." The "My two approaches" section should make him think: "His choices are deliberate, with technical justification, not just based on what's easiest."
-
-The way to hit this bar is in this file. Translate it into your own words for the writeup — don't paste, restate.
